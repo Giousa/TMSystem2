@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="标题"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_20"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_size_2"
+        android:text="内容内容内容内容内容内容内容内容"
+        android:textSize="@dimen/text_size_15" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/iv_item_1"
+            android:layout_width="@dimen/dp_size_100"
+            android:layout_height="@dimen/dp_size_100"
+            android:background="@drawable/selector_image_add" />
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/iv_item_2"
+            android:layout_width="@dimen/dp_size_100"
+            android:layout_height="@dimen/dp_size_100"
+            android:layout_marginLeft="@dimen/dp_size_10"
+            android:layout_marginRight="@dimen/dp_size_10"
+            android:background="@drawable/selector_image_add"
+            android:visibility="gone" />
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/iv_item_3"
+            android:layout_width="@dimen/dp_size_100"
+            android:layout_height="@dimen/dp_size_100"
+            android:background="@drawable/selector_image_add"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_size_10">
+
+        <TextView
+            android:id="@+id/tv_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="2018-09-04" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

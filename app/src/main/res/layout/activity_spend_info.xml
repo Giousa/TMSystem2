@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_btn_bg"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar_content" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_size_200"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_marginTop="@dimen/dp_size_20"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:text="请输入支出或收入金额"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥:"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_45" />
+
+            <EditText
+                android:id="@+id/et_money"
+                android:layout_width="@dimen/dp_size_200"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:padding="@dimen/dp_size_20"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_45" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_size_50"
+        android:layout_marginLeft="@dimen/dp_size_20"
+        android:layout_marginRight="@dimen/dp_size_20"
+        android:layout_marginTop="@dimen/dp_size_10"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支出" />
+
+        <RadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_size_100"
+            android:text="收入" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_20"
+        android:text="描述:"
+        android:textSize="@dimen/text_size_20" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_size_20"
+        android:layout_marginRight="@dimen/dp_size_20"
+        android:background="@android:drawable/edit_text"
+        android:enabled="true"
+        android:gravity="top"
+        android:hint="请选择或用一句话描述"
+        android:maxLines="1"
+        android:minLines="1"
+        android:scrollbars="vertical"
+        android:singleLine="true" />
+
+    <com.zmm.tmsystem.ui.widget.CustomPayItemView
+        android:id="@+id/custom_item_pay_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.zmm.tmsystem.ui.widget.CustomPayItemView>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/dp_size_10"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="生活费" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="学费" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="班费" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="体检" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="医药费" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="照片" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/dp_size_10"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="理发" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="零食" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="书本" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="试卷" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="车费" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/dp_10"-->
+            <!--android:background="@color/white"-->
+            <!--android:padding="@dimen/dp_size_10"-->
+            <!--android:text="服装" />-->
+
+    <!--</LinearLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_select_confirm"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_hollow_circle_deep_blue"
+            android:text="提交"
+            android:textColor="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

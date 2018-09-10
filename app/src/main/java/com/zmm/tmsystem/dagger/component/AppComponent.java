@@ -1,0 +1,34 @@
+package com.zmm.tmsystem.dagger.component;
+
+import android.app.Application;
+
+import com.google.gson.Gson;
+import com.zmm.tmsystem.dagger.module.AppModule;
+import com.zmm.tmsystem.dagger.module.HttpModule;
+import com.zmm.tmsystem.http.ApiService;
+import com.zmm.tmsystem.rx.RxErrorHandler;
+
+import javax.inject.Singleton;
+
+import dagger.Component;
+
+/**
+ * Description:
+ * Author:zhangmengmeng
+ * Date:2018/5/23
+ * Time:下午6:01
+ */
+
+@Singleton
+@Component(modules = {AppModule.class, HttpModule.class})
+public interface AppComponent {
+
+    //将HttpModule中的ApiService暴露出来，以便于其他依赖于AppComponent的Component调用
+    ApiService getApiService();
+
+    Application getApplication();
+
+    RxErrorHandler getRxErrorHandler();
+
+    Gson getGson();
+}

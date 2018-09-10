@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/view_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_content" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="1"
+        app:title="头像" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="姓名" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_school"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_size_10"
+        app:isShowPic="0"
+        app:title="学校" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_grade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="年级" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_teacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="班主任" />
+
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_teacher_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="班主任联系电话" />
+
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_certificates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_size_10"
+        app:isShowPic="0"
+        app:title="荣誉证书" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="成绩单" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="消费明细" />
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="个人信息详情" />
+
+</LinearLayout>

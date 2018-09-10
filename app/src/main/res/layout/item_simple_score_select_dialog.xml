@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_size_150"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shape_corners_grey"
+    android:gravity="center">
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_15"
+        android:text="单元测试" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_15"
+        android:text="月考" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_15"
+        android:text="会考" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_15"
+        android:text="教师评测" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_15"
+        android:text="期中考试" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_size_15"
+        android:text="期末考试" />
+
+</LinearLayout>

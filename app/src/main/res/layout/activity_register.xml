@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#e1f0fc">
+
+
+    <include layout="@layout/toolbar_content"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="@dimen/dp_size_120"
+            android:layout_height="@dimen/dp_size_120"
+            android:src="@drawable/login_header"/>
+
+        <!--手机号码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bigMenu"
+            android:layout_marginLeft="@dimen/smallBiggerMargin"
+            android:layout_marginRight="@dimen/smallBiggerMargin"
+            android:layout_marginTop="@dimen/bigMargin"
+            android:background="@drawable/white_solid_small_corner"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/smallerMargin">
+
+            <ImageView
+                android:layout_width="@dimen/smallTuBiao"
+                android:layout_height="@dimen/smallTuBiao"
+                android:src="@drawable/login_phone"/>
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入11位手机号"
+                android:inputType="number"
+                android:padding="@dimen/smallerMargin"/>
+        </LinearLayout>
+
+        <!--密码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bigMenu"
+            android:layout_marginLeft="@dimen/smallBiggerMargin"
+            android:layout_marginRight="@dimen/smallBiggerMargin"
+            android:layout_marginTop="@dimen/bigMargin"
+            android:background="@drawable/white_solid_small_corner"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/smallerMargin">
+
+            <ImageView
+                android:layout_width="@dimen/smallTuBiao"
+                android:layout_height="@dimen/smallTuBiao"
+                android:src="@drawable/login_psd"/>
+
+            <EditText
+                android:id="@+id/et_psd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入6~16位密码"
+                android:inputType="textPassword"
+                android:padding="@dimen/smallerMargin"/>
+        </LinearLayout>
+
+        <!--验证码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bigMenu"
+            android:layout_marginLeft="@dimen/smallBiggerMargin"
+            android:layout_marginRight="@dimen/smallBiggerMargin"
+            android:layout_marginTop="@dimen/bigMargin"
+            android:background="@drawable/white_solid_small_corner"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/smallerMargin">
+
+            <ImageView
+                android:layout_width="@dimen/smallTuBiao"
+                android:layout_height="@dimen/smallTuBiao"
+                android:src="@drawable/login_psd"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/et_yzm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:padding="@dimen/smallerMargin"
+                    android:paddingRight="@dimen/smallerMargin"/>
+
+                <TextView
+                    android:id="@+id/tv_getYzm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/smallerMargin"
+                    android:background="@drawable/blue_solid_small_corner"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/smallerMargin"
+                    android:paddingRight="@dimen/smallerMargin"
+                    android:text="发送验证码"
+                    android:textColor="@android:color/white"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <com.zmm.tmsystem.ui.widget.LoadingButton
+            android:id="@+id/btn_loading_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/smallBiggerMargin"
+            android:layout_marginRight="@dimen/smallBiggerMargin"
+            android:layout_marginTop="@dimen/bigMargin"
+            android:background="@drawable/bg_btn"
+            app:progressColor="@color/colorAccent"
+            app:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

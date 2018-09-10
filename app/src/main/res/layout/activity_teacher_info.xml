@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/root_view"
+    android:background="@color/view_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/toolbar_content"/>
+
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="1"
+        app:title="头像"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="姓名"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="性别"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="联系电话"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_childcare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="托管机构"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_school"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="在职学校"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_grade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="授课年级"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="授课学科"/>
+
+    <com.zmm.tmsystem.ui.widget.CustomInfoItemView
+        android:id="@+id/custom_item_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isShowPic="0"
+        app:title="地址"/>
+
+
+</LinearLayout>
