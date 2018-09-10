@@ -20,6 +20,20 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('tms.keystore')
+            storePassword "tms123456"
+            keyAlias "TMS"
+            keyPassword "tms123456"
+        }
     }
 }
 

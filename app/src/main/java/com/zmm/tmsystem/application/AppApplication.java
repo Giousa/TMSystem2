@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.view.CropImageView;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.socialize.PlatformConfig;
 import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.dagger.component.DaggerAppComponent;
 import com.zmm.tmsystem.dagger.module.AppModule;
@@ -57,8 +59,14 @@ public class AppApplication extends Application {
         mAppComponent = DaggerAppComponent.builder().httpModule(new HttpModule()).appModule(new AppModule(this)).build();
 
         initPhoto();
+
+        initUmeng();
     }
 
+
+    /**
+     * 初始化拍照
+     */
     private void initPhoto() {
         ImagePicker imagePicker = ImagePicker.getInstance();
         imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
@@ -73,6 +81,20 @@ public class AppApplication extends Application {
         imagePicker.setOutPutX(1000);//保存文件的宽度。单位像素
         imagePicker.setOutPutY(1000);//保存文件的高度。单位像素
     }
+
+
+    /**
+     * 初始化友盟
+     */
+    private void initUmeng() {
+        //友盟初始化
+        UMConfigure.init(this,"5b92866ca40fa35cc00000e9","umeng", UMConfigure.DEVICE_TYPE_PHONE,"");
+        //需要去微信平台获取
+        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        //打印友盟日志
+        UMConfigure.setLogEnabled(true);
+    }
+
 
     /**
      * 添加Activity

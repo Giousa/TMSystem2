@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.ionicons_typeface_library.Ionicons;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.bean.TeacherBean;
 import com.zmm.tmsystem.common.Constant;
@@ -101,6 +105,7 @@ public class SettingActivity extends BaseActivity implements CustomInfoItemView.
     @Override
     protected void setupActivityComponent(AppComponent appComponent) {
 
+        String s = "37a295fddd28d931903c76e86e1b219e";
     }
 
 
@@ -125,9 +130,46 @@ public class SettingActivity extends BaseActivity implements CustomInfoItemView.
 
                 break;
             case Constant.TYPE_VERSION:
+                shareUmeng();
                 break;
 
         }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void shareUmeng() {
+        new ShareAction(this).withText("你好呀，这个是测试分享软件")
+                .setDisplayList(SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN)
+                .setCallback(new UMShareListener() {
+                    @Override
+                    public void onStart(SHARE_MEDIA share_media) {
+                        System.out.println("---onStart---");
+                    }
+
+                    @Override
+                    public void onResult(SHARE_MEDIA share_media) {
+                        System.out.println("---onResult---");
+
+                    }
+
+                    @Override
+                    public void onError(SHARE_MEDIA share_media, Throwable throwable) {
+                        System.out.println("---onError---");
+
+                    }
+
+                    @Override
+                    public void onCancel(SHARE_MEDIA share_media) {
+                        System.out.println("---onCancel---");
+
+                    }
+                }).open();
     }
 
     @OnClick(R.id.btn_exit)
