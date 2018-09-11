@@ -35,6 +35,12 @@ android {
             keyPassword "tms123456"
         }
     }
+
+    sourceSets{
+        main{
+            jniLibs.srcDir 'libs'
+        }
+    }
 }
 
 dependencies {

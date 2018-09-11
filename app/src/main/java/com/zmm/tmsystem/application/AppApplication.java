@@ -28,6 +28,8 @@ import java.util.List;
 
 public class AppApplication extends Application {
 
+    private static String tag = "AppApplication";
+
 
     private AppComponent mAppComponent;
     private View mView;
@@ -61,6 +63,7 @@ public class AppApplication extends Application {
         initPhoto();
 
         initUmeng();
+
     }
 
 
@@ -90,7 +93,7 @@ public class AppApplication extends Application {
         //友盟初始化
         UMConfigure.init(this,"5b92866ca40fa35cc00000e9","umeng", UMConfigure.DEVICE_TYPE_PHONE,"");
         //需要去微信平台获取
-        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        PlatformConfig.setWeixin("wxe40ce71811dd034d", "a2cfd98f6329e01af142773fa4e6ea5f");
         //打印友盟日志
         UMConfigure.setLogEnabled(true);
     }

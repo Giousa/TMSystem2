@@ -13,6 +13,8 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.bean.TeacherBean;
 import com.zmm.tmsystem.common.Constant;
@@ -144,8 +146,19 @@ public class SettingActivity extends BaseActivity implements CustomInfoItemView.
     }
 
     private void shareUmeng() {
-        new ShareAction(this).withText("你好呀，这个是测试分享软件")
-                .setDisplayList(SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN)
+
+        String url = "http://uog.oss-cn-shanghai.aliyuncs.com/pic/015ded0f-7809-4b38-b701-21d9609b2246.jpg";
+
+        UMImage image = new UMImage(this, url);//网络图片
+
+        UMWeb web = new UMWeb(url);
+        web.setTitle("这个是测试标题");//标题
+        web.setThumb(image);  //缩略图
+        web.setDescription("测试描述");//描述
+
+        new ShareAction(this).withText("分享图片测试")
+                .setDisplayList(SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE)
+                .withMedia(web)
                 .setCallback(new UMShareListener() {
                     @Override
                     public void onStart(SHARE_MEDIA share_media) {
