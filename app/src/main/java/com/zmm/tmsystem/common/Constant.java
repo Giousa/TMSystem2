@@ -11,10 +11,13 @@ public class Constant {
 
 
 
-    public static final String BASE_URL="http://192.168.253.7:8082/tms/";
-//    public static final String BASE_URL="http://192.168.1.102:8082/tms/";
 
-    public static final String BASE_IMG_URL="http://uog.oss-cn-shanghai.aliyuncs.com/pic/";
+    public static final String BASE_URL = "http://192.168.1.103:8082/tms/";
+
+    //分享学生端下载链接
+    public static final String STUDENT_DOWNLOAD_URL = BASE_URL + "download";
+
+    public static final String BASE_IMG_URL = "http://uog.oss-cn-shanghai.aliyuncs.com/pic/";
 
     //时间格式
     private static String FORMAT_TYPE = "yyyy-MM-dd";

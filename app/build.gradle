@@ -14,6 +14,26 @@ android {
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /**
+         * 极光推送
+         */
+        multiDexEnabled true
+
+//        dexOptions {
+//            incremental true
+//        }
+
+//        ndk {
+//            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+//            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'x86'
+//        }
+//
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "5de45ed8f8d1d9ff284b66e2",
+                JPUSH_CHANNEL : "developer-default",
+        ]
     }
     buildTypes {
         release {
@@ -149,5 +169,7 @@ dependencies {
 
     //荣誉证书 图片缩放
     compile 'com.bm.photoview:library:1.4.1'
+
+    compile 'com.android.support:multidex:1.0.3'
 
 }

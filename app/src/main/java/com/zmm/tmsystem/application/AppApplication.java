@@ -2,6 +2,7 @@ package com.zmm.tmsystem.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 import android.view.View;
 
 import com.lzy.imagepicker.ImagePicker;
@@ -18,6 +19,8 @@ import com.zmm.tmsystem.ui.widget.GlideImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.jpush.im.android.api.JMessageClient;
+
 
 /**
  * Description:
@@ -26,7 +29,7 @@ import java.util.List;
  * Time:下午5:56
  */
 
-public class AppApplication extends Application {
+public class AppApplication extends MultiDexApplication {
 
     private static String tag = "AppApplication";
 
@@ -64,6 +67,8 @@ public class AppApplication extends Application {
 
         initUmeng();
 
+        initJiGuang();
+
     }
 
 
@@ -97,6 +102,16 @@ public class AppApplication extends Application {
         //打印友盟日志
         UMConfigure.setLogEnabled(true);
     }
+
+
+    /**
+     * 初始化极光IM
+     */
+    private void initJiGuang() {
+        JMessageClient.setDebugMode(true);
+        JMessageClient.init(this);
+    }
+
 
 
     /**

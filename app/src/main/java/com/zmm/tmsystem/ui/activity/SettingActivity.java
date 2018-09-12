@@ -20,6 +20,7 @@ import com.zmm.tmsystem.bean.TeacherBean;
 import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.ACache;
 import com.zmm.tmsystem.common.utils.TeacherCacheUtil;
+import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.common.utils.VersionUtils;
 import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.ui.widget.CustomInfoItemView;
@@ -129,10 +130,9 @@ public class SettingActivity extends BaseActivity implements CustomInfoItemView.
                 startActivity(intent2);
                 break;
             case Constant.TYPE_QR_CODE:
-
+                shareUmeng();
                 break;
             case Constant.TYPE_VERSION:
-                shareUmeng();
                 break;
 
         }
@@ -147,17 +147,20 @@ public class SettingActivity extends BaseActivity implements CustomInfoItemView.
 
     private void shareUmeng() {
 
-        String url = "http://uog.oss-cn-shanghai.aliyuncs.com/pic/015ded0f-7809-4b38-b701-21d9609b2246.jpg";
+//        UMImage image = new UMImage(ShareActivity.this, "imageurl");//网络图片
+//        UMImage image = new UMImage(ShareActivity.this, file);//本地文件
+//        UMImage image = new UMImage(ShareActivity.this, R.drawable.xxx);//资源文件
+//        UMImage image = new UMImage(ShareActivity.this, bitmap);//bitmap文件
+//        UMImage image = new UMImage(ShareActivity.this, byte[]);//字节流
 
-        UMImage image = new UMImage(this, url);//网络图片
-
-        UMWeb web = new UMWeb(url);
-        web.setTitle("这个是测试标题");//标题
+        UMImage image = new UMImage(this, R.mipmap.ic_launcher);
+        UMWeb web = new UMWeb(Constant.STUDENT_DOWNLOAD_URL);
+        web.setTitle("学生端");//标题
         web.setThumb(image);  //缩略图
-        web.setDescription("测试描述");//描述
+        web.setDescription("一款和教师系统紧密结合的辅助软件，配合教师对学生进行管理");//描述
 
-        new ShareAction(this).withText("分享图片测试")
-                .setDisplayList(SHARE_MEDIA.QQ, SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE)
+        new ShareAction(this)
+                .setDisplayList(SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withMedia(web)
                 .setCallback(new UMShareListener() {
                     @Override
@@ -168,7 +171,7 @@ public class SettingActivity extends BaseActivity implements CustomInfoItemView.
                     @Override
                     public void onResult(SHARE_MEDIA share_media) {
                         System.out.println("---onResult---");
-
+                        ToastUtils.SimpleToast(SettingActivity.this,"恭喜您，分享成功！");
                     }
 
                     @Override
