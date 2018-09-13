@@ -204,6 +204,7 @@ public class ChatFragment extends ProgressFragment {
     }
 
     public void onEventMainThread(Event event) {
+        System.out.println("事件：event = "+event);
         switch (event.getType()) {
             case createConversation:
                 Conversation conv = event.getConversation();

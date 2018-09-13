@@ -14,6 +14,7 @@ import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.dagger.component.DaggerAppComponent;
 import com.zmm.tmsystem.dagger.module.AppModule;
 import com.zmm.tmsystem.dagger.module.HttpModule;
+import com.zmm.tmsystem.jmessage.NotificationClickEventReceiver;
 import com.zmm.tmsystem.ui.activity.BaseActivity;
 import com.zmm.tmsystem.ui.widget.GlideImageLoader;
 
@@ -116,6 +117,8 @@ public class AppApplication extends Application {
         //设置Notification的模式
         JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND | JMessageClient.FLAG_NOTIFY_WITH_LED | JMessageClient.FLAG_NOTIFY_WITH_VIBRATE);
 
+        //注册Notification点击的接收器
+        new NotificationClickEventReceiver(getApplicationContext());
     }
 
 
