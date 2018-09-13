@@ -2,6 +2,7 @@ package com.zmm.tmsystem.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.view.View;
 
@@ -29,7 +30,7 @@ import cn.jpush.im.android.api.JMessageClient;
  * Time:下午5:56
  */
 
-public class AppApplication extends MultiDexApplication {
+public class AppApplication extends Application {
 
     private static String tag = "AppApplication";
 
@@ -108,8 +109,13 @@ public class AppApplication extends MultiDexApplication {
      * 初始化极光IM
      */
     private void initJiGuang() {
-        JMessageClient.setDebugMode(true);
+
         JMessageClient.init(this);
+        JMessageClient.setDebugMode(true);
+
+        //设置Notification的模式
+        JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND | JMessageClient.FLAG_NOTIFY_WITH_LED | JMessageClient.FLAG_NOTIFY_WITH_VIBRATE);
+
     }
 
 
@@ -141,5 +147,10 @@ public class AppApplication extends MultiDexApplication {
         for (BaseActivity activity:mBaseActivityList) {
             activity.finish();
         }
+    }
+
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

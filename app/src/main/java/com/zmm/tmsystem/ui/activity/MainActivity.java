@@ -26,6 +26,13 @@ import com.zmm.tmsystem.ui.fragment.ManageFragment;
 import com.zmm.tmsystem.ui.widget.TitleBar;
 
 import butterknife.BindView;
+import cn.jiguang.api.JCoreInterface;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.enums.ConversationType;
+import cn.jpush.im.android.api.event.MessageEvent;
+import cn.jpush.im.android.api.event.NotificationClickEvent;
+import cn.jpush.im.android.api.model.Conversation;
+import cn.jpush.im.android.api.model.Message;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
@@ -68,8 +75,20 @@ public class MainActivity extends BaseActivity implements BottomBar.OnSwitchFrag
 
         operateBus();
 
-
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JCoreInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        JCoreInterface.onPause(this);
+        super.onPause();
+    }
+
 
     private void initTablayout() {
 

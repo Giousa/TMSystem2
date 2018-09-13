@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -17,10 +18,16 @@ import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.mvp.presenter.BasePresenter;
 import com.zmm.tmsystem.mvp.view.BaseView;
 
+import java.io.File;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.event.LoginStateChangeEvent;
+import cn.jpush.im.android.api.model.UserInfo;
+import cn.jpush.im.api.BasicCallback;
 
 public abstract class ProgressFragment<T extends BasePresenter> extends Fragment  implements BaseView {
 
@@ -60,7 +67,8 @@ public abstract class ProgressFragment<T extends BasePresenter> extends Fragment
                 onEmptyViewClick();
             }
         });
-
+        //订阅接收消息,子类只要重写onEvent就能收到消息
+        JMessageClient.registerEventReceiver(this);
 
         return mRootView;
 
@@ -152,7 +160,8 @@ public abstract class ProgressFragment<T extends BasePresenter> extends Fragment
     @Override
     public void onDestroy() {
         super.onDestroy();
-
+        //注销消息接收
+        JMessageClient.unRegisterEventReceiver(this);
         if(mUnbinder != Unbinder.EMPTY){
             mUnbinder.unbind();
         }
@@ -181,4 +190,19 @@ public abstract class ProgressFragment<T extends BasePresenter> extends Fragment
     protected abstract void init();
 
 
+
+    public void onEventMainThread(LoginStateChangeEvent event) {
+        final LoginStateChangeEvent.Reason reason = event.getReason();
+        UserInfo myInfo = event.getMyInfo();
+        if (myInfo != null) {
+            JMessageClient.logout();
+        }
+        switch (reason) {
+            case user_logout:
+
+                break;
+            case user_password_change:
+                break;
+        }
+    }
 }

@@ -45,6 +45,15 @@ public class TeacherBean extends BaseEntity{
     private String address;
     private String phoneNum1;
     private String phoneNum2;
+    private String appkey;
+
+    public String getAppkey() {
+        return appkey;
+    }
+
+    public void setAppkey(String appkey) {
+        this.appkey = appkey;
+    }
 
     public String getId() {
         return id;
