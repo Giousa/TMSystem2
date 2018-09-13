@@ -17,6 +17,7 @@ import com.zmm.tmsystem.common.utils.ACache;
 import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.rx.RxBus;
+import com.zmm.tmsystem.ui.fragment.ChatFragment;
 import com.zmm.tmsystem.ui.widget.BottomBar;
 import com.zmm.tmsystem.ui.fragment.CommentFragment;
 import com.zmm.tmsystem.ui.fragment.CramFragment;
@@ -83,8 +84,8 @@ public class MainActivity extends BaseActivity implements BottomBar.OnSwitchFrag
                         "托管",
                         R.drawable.item1_before,
                         R.drawable.item1_after)
-                .addItem(CramFragment.class,
-                        "补课",
+                .addItem(ChatFragment.class,
+                        "聊天",
                         R.drawable.item2_before,
                         R.drawable.item2_after)
                 .addItem(CommentFragment.class,
@@ -141,17 +142,17 @@ public class MainActivity extends BaseActivity implements BottomBar.OnSwitchFrag
                 break;
 
             case 2:
-                mTitleBar.setCenterTitle(getResources().getString(R.string.main_title_cram));
+                mTitleBar.setCenterTitle(getResources().getString(R.string.main_title_chat));
                 mMenuItemSetting.setVisible(true);
-                mMenuItemAdd.setVisible(true);
+                mMenuItemAdd.setVisible(false);
 
-                String count2 = mACache.getAsString(Constant.CRAM_STUDENT_COUNT);
-                if(TextUtils.isEmpty(count2)){
-                    mTitleBar.setSubtitle("");
-                }else {
-                    mTitleBar.setSubtitle(count2);
-                }
-                mTitleBar.setSubtitleTextColor(getResources().getColor(R.color.white));
+//                String count2 = mACache.getAsString(Constant.CRAM_STUDENT_COUNT);
+//                if(TextUtils.isEmpty(count2)){
+//                    mTitleBar.setSubtitle("");
+//                }else {
+//                    mTitleBar.setSubtitle(count2);
+//                }
+//                mTitleBar.setSubtitleTextColor(getResources().getColor(R.color.white));
 
                 break;
 

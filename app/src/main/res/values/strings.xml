@@ -51,6 +51,7 @@
     <string name="main_title_home">教师管理系统</string>
     <string name="main_title_childcare">托管中心</string>
     <string name="main_title_cram">补习班</string>
+    <string name="main_title_chat">聊天</string>
     <string name="main_title_comment">学生每日点评</string>
     <string name="main_title_setting">设置</string>
 
