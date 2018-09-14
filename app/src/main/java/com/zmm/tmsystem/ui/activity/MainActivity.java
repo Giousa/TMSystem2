@@ -128,52 +128,8 @@ public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClic
 
         mBottomBarLayout.setUnread(2,allUnReadMsgCount);
 
-//        List<Conversation> conversationList = JMessageClient.getConversationList();
-//        for (int i = 0; i < conversationList.size(); i++) {
-//
-//            System.out.println("Conversation "+i+"    ::"+conversationList.get(i).toJson());
-//
-//            Conversation conversation = conversationList.get(i);
-//
-//            Message latestMessage = conversation.getLatestMessage();
-//
-//            if(latestMessage != null){
-//
-//
-//
-//                UserInfo fromUser = latestMessage.getFromUser();
-//                System.out.println("from username = "+ fromUser.getUserName());
-//                System.out.println("from nickname = "+ fromUser.getNickname());
-//
-//                long createTime = latestMessage.getCreateTime();
-//                try {
-//                    System.out.println("最后发送时间：latestMessage.getCreateTime():"+ DateUtils.longToString(createTime,"yyyy-MM-dd HH:mm:ss"));
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//
-//            ContentType latestType = conversation.getLatestType();
-//            switch (latestType){
-//
-//                case text:
-//                    System.out.println("最后一条是文本");
-//                    String latestText = conversation.getLatestText();
-//                    System.out.println("最后一条消息："+latestText);
-//                    break;
-//
-//                case image:
-//                    System.out.println("最后一条是图片");
-//                    break;
-//            }
-//
-//
-//
-//            int unReadMsgCnt = conversation.getUnReadMsgCnt();
-//            System.out.println("未读消息："+unReadMsgCnt);
-//
-//        }
+        RxBus.getDefault().post(Constant.UN_READ_MSG_COUNT);
+
     }
 
 
