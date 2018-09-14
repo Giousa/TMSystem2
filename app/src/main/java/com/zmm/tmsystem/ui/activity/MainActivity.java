@@ -17,6 +17,7 @@ import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.bean.TermBean;
 import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.ACache;
+import com.zmm.tmsystem.common.utils.DateUtils;
 import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.rx.RxBus;
@@ -25,10 +26,13 @@ import com.zmm.tmsystem.ui.fragment.ProgressFragment;
 import com.zmm.tmsystem.ui.widget.BottomBar;
 import com.zmm.tmsystem.ui.widget.TitleBar;
 
+import java.text.ParseException;
 import java.util.List;
 
 import butterknife.BindView;
 import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.content.MessageContent;
+import cn.jpush.im.android.api.enums.ContentType;
 import cn.jpush.im.android.api.event.MessageEvent;
 import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
@@ -48,6 +52,8 @@ public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClic
     BottomBar mBottomBar;
     @BindView(R.id.bbl)
     BottomBarLayout mBottomBarLayout;
+
+
     private MenuItem mMenuItemSetting;
     private MenuItem mMenuItemAdd;
     private int index = 0;
@@ -115,18 +121,59 @@ public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClic
         int allUnReadMsgCount = JMessageClient.getAllUnReadMsgCount();
         System.out.println("MainActivity 未读消息：" + allUnReadMsgCount);
 
-        Message msg = event.getMessage();
-        final UserInfo userInfo = (UserInfo) msg.getTargetInfo();
-        String targetId = userInfo.getUserName();
-        System.out.println("MainActivity 未读消息 人名：" + targetId);
+//        Message msg = event.getMessage();
+//        final UserInfo userInfo = (UserInfo) msg.getTargetInfo();
+//        String targetId = userInfo.getUserName();
+//        System.out.println("MainActivity 未读消息 人名：" + targetId);
 
         mBottomBarLayout.setUnread(2,allUnReadMsgCount);
 
-        List<Conversation> conversationList = JMessageClient.getConversationList();
-        for (int i = 0; i < conversationList.size(); i++) {
-
-            System.out.println("Conversation "+i+"    ::"+conversationList.get(i).toJson());
-        }
+//        List<Conversation> conversationList = JMessageClient.getConversationList();
+//        for (int i = 0; i < conversationList.size(); i++) {
+//
+//            System.out.println("Conversation "+i+"    ::"+conversationList.get(i).toJson());
+//
+//            Conversation conversation = conversationList.get(i);
+//
+//            Message latestMessage = conversation.getLatestMessage();
+//
+//            if(latestMessage != null){
+//
+//
+//
+//                UserInfo fromUser = latestMessage.getFromUser();
+//                System.out.println("from username = "+ fromUser.getUserName());
+//                System.out.println("from nickname = "+ fromUser.getNickname());
+//
+//                long createTime = latestMessage.getCreateTime();
+//                try {
+//                    System.out.println("最后发送时间：latestMessage.getCreateTime():"+ DateUtils.longToString(createTime,"yyyy-MM-dd HH:mm:ss"));
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//
+//            ContentType latestType = conversation.getLatestType();
+//            switch (latestType){
+//
+//                case text:
+//                    System.out.println("最后一条是文本");
+//                    String latestText = conversation.getLatestText();
+//                    System.out.println("最后一条消息："+latestText);
+//                    break;
+//
+//                case image:
+//                    System.out.println("最后一条是图片");
+//                    break;
+//            }
+//
+//
+//
+//            int unReadMsgCnt = conversation.getUnReadMsgCnt();
+//            System.out.println("未读消息："+unReadMsgCnt);
+//
+//        }
     }
 
 
@@ -203,7 +250,7 @@ public class MainActivity extends BaseActivity implements Toolbar.OnMenuItemClic
 
             case 2:
                 mTitleBar.setCenterTitle(getResources().getString(R.string.main_title_chat));
-                mMenuItemSetting.setVisible(true);
+                mMenuItemSetting.setVisible(false);
                 mMenuItemAdd.setVisible(false);
                 mTitleBar.setSubtitle("");
 //                String count2 = mACache.getAsString(Constant.CRAM_STUDENT_COUNT);
