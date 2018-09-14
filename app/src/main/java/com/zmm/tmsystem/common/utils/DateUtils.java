@@ -99,4 +99,60 @@ public class DateUtils {
         return date;
     }
 
+
+//    public static String format(Date date) {
+//        DateTime now = new DateTime();
+//        DateTime today_start = new DateTime(now.getYear(), now.getMonthOfYear(), now.getDayOfMonth(), 0, 0, 0);
+//        DateTime today_end = today_start.plusDays(1);
+//        DateTime yesterday_start = today_start.minusDays(1);
+//
+//        if(date.after(today_start.toDate()) && date.before(today_end.toDate())) {
+//            return String.format("今天 %s", new DateTime(date).toString("HH:mm"));
+//        } else if(date.after(yesterday_start.toDate()) && date.before(today_start.toDate())) {
+//            return String.format("昨天 %s", new DateTime(date).toString("HH:mm"));
+//        }
+//
+//        return new DateTime(date).toString("yyyy-MM-dd HH:mm");
+//    }
+
+    public static String isShowTime(long time){
+
+        try {
+
+            long current = System.currentTimeMillis();
+            int curentYeay = Integer.parseInt(longToString(current, "yyyy"));
+            int currentMonth = Integer.parseInt(longToString(current, "MM"));
+            int currentDay = Integer.parseInt(longToString(current, "dd"));
+
+
+            int year = Integer.parseInt(longToString(time, "yyyy"));
+            int month = Integer.parseInt(longToString(time, "MM"));
+            int day = Integer.parseInt(longToString(time, "dd"));
+
+            if(year != curentYeay){
+                return longToString(time,"yyyy-MM-dd");
+            }else {
+
+                if(month != currentMonth){
+                    return longToString(time,"MM-dd");
+                }else {
+                    if(day != currentDay){
+                        return longToString(time,"MM-dd");
+                    }else {
+                        return longToString(time,"HH:mm");
+                    }
+                }
+
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        return null;
+
+    }
+
+
 }

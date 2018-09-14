@@ -53,11 +53,7 @@ public class ChatAdapter extends BaseQuickAdapter<Conversation,BaseViewHolder>{
             }
 
             long createTime = latestMessage.getCreateTime();
-            try {
-                helper.setText(R.id.tv_chat_time, DateUtils.longToString(createTime,"HH:mm"));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+            helper.setText(R.id.tv_chat_time, DateUtils.isShowTime(createTime));
         }
 
 
