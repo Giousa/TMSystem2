@@ -7,10 +7,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.bean.TeacherBean;
 import com.zmm.tmsystem.bean.TermBean;
 import com.zmm.tmsystem.common.Constant;
+import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.rx.RxBus;
 import com.zmm.tmsystem.ui.adapter.ChatAdapter;
@@ -70,6 +72,16 @@ public class ChatFragment extends ProgressFragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mChatAdapter = new ChatAdapter(getActivity());
+
+        mChatAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+                Conversation conversation = (Conversation) adapter.getData().get(position);
+                String userName = conversation.getLatestMessage().getFromUser().getUserName();
+                ToastUtils.SimpleToast(mContext,userName);
+            }
+        });
 
         mRecyclerView.setAdapter(mChatAdapter);
 
