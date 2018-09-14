@@ -8,6 +8,7 @@ import com.zmm.tmsystem.bean.TeacherBean;
 import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.ACache;
 import com.zmm.tmsystem.common.utils.TeacherCacheUtil;
+import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.mvp.presenter.contract.TeacherContract;
 import com.zmm.tmsystem.rx.RxHttpResponseCompat;
 import com.zmm.tmsystem.rx.subscriber.ErrorHandlerSubscriber;
@@ -20,6 +21,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.api.BasicCallback;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -261,5 +264,19 @@ public class TeacherPresenter extends BasePresenter<TeacherContract.ITeacherMode
                         TeacherCacheUtil.save(mContext,teacherBean);
                     }
                 });
+
+        /**
+         * 更新到极光服务器
+         */
+        JMessageClient.updateUserAvatar(file, new BasicCallback() {
+            @Override
+            public void gotResult(int responseCode, String responseMessage) {
+                if (responseCode == 0) {
+                    ToastUtils.SimpleToast(mContext, "更新成功");
+                } else {
+                    ToastUtils.SimpleToast(mContext, "更新失败" + responseMessage);
+                }
+            }
+        });
     }
 }
