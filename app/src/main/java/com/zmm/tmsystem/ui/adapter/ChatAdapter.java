@@ -6,12 +6,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.ionicons_typeface_library.Ionicons;
 import com.zmm.tmsystem.R;
+import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.DateUtils;
+import com.zmm.tmsystem.ui.widget.GlideCircleTransform;
 
 import java.text.ParseException;
 
@@ -112,7 +115,7 @@ public class ChatAdapter extends BaseQuickAdapter<Conversation,BaseViewHolder>{
             helper.setText(R.id.tv_chat_content, "");
 
         }
-        
+
         int unReadMsgCnt = conversation.getUnReadMsgCnt();
         if(unReadMsgCnt == 0){
             unReadText.setVisibility(View.INVISIBLE);
@@ -124,9 +127,16 @@ public class ChatAdapter extends BaseQuickAdapter<Conversation,BaseViewHolder>{
         ImageView imageView = helper.getView(R.id.iv_chat_icon);
 
         //聊天头像
-        imageView.setImageDrawable(new IconicsDrawable(mContext)
-                .icon(Ionicons.Icon.ion_android_contact)
-                .color(mContext.getResources().getColor(R.color.colorPrimary)));
+//        imageView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.jmui_head_icon));
+
+        Glide.with(mContext)
+                .load(R.drawable.jmui_head_icon)
+                .transform(new GlideCircleTransform(mContext))
+                .error(new IconicsDrawable(mContext)
+                        .icon(Ionicons.Icon.ion_android_contact)
+                        .color(mContext.getResources().getColor(R.color.colorPrimary)
+                        ))
+                .into(imageView);
     }
 
 
