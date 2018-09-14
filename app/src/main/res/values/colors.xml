@@ -18,6 +18,11 @@
     <color name="stroke">#cac7c7</color>
     <color name="black">#000000</color>
 
+
+    <!--底部导航栏-->
+    <color name="tab_normal_color">#999999</color>
+    <color name="tab_selected_color">#ff5d5e</color>
+
     <!--图表需要颜色-->
     <color name="green">#0f0</color>
     <color name="blue">#00f</color>

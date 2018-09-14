@@ -68,7 +68,7 @@ public abstract class ProgressFragment<T extends BasePresenter> extends Fragment
             }
         });
         //订阅接收消息,子类只要重写onEvent就能收到消息
-        JMessageClient.registerEventReceiver(this);
+//        JMessageClient.registerEventReceiver(this);
 
         return mRootView;
 
@@ -161,7 +161,7 @@ public abstract class ProgressFragment<T extends BasePresenter> extends Fragment
     public void onDestroy() {
         super.onDestroy();
         //注销消息接收
-        JMessageClient.unRegisterEventReceiver(this);
+//        JMessageClient.unRegisterEventReceiver(this);
         if(mUnbinder != Unbinder.EMPTY){
             mUnbinder.unbind();
         }

@@ -29,7 +29,6 @@ public class TeacherCacheUtil {
         aCache.put(Constant.TEACHER,"");
         aCache.put(Constant.CHILDCARE_STUDENT_COUNT,"");
         aCache.put(Constant.CRAM_STUDENT_COUNT,"");
-        aCache.put(Constant.EVALUATE_STUDENT_COUNT,"");
         aCache.put(Constant.SIGN,"");
         aCache.put(Constant.STUDENT,"");
         aCache.put(Constant.TERM,"");

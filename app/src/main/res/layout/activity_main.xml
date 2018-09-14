@@ -23,6 +23,74 @@
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        android:visibility="gone"/>
+
+    <com.chaychan.library.BottomBarLayout
+        android:id="@+id/bbl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="30dp"
+            app:iconNormal="@drawable/item1_before"
+            app:iconSelected="@drawable/item1_after"
+            app:iconWidth="30dp"
+            app:itemMarginTop="-3dp"
+            app:itemText="我的"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/tab_normal_color"
+            app:textColorSelected="@color/tab_selected_color" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="30dp"
+            app:iconNormal="@drawable/item2_before"
+            app:iconSelected="@drawable/item2_after"
+            app:iconWidth="30dp"
+            app:itemMarginTop="-3dp"
+            app:itemText="托管"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/tab_normal_color"
+            app:textColorSelected="@color/tab_selected_color" />
+
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="30dp"
+            app:iconNormal="@drawable/item3_before"
+            app:iconSelected="@drawable/item3_after"
+            app:iconWidth="30dp"
+            app:itemMarginTop="-3dp"
+            app:itemText="聊天"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/tab_normal_color"
+            app:textColorSelected="@color/tab_selected_color" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="30dp"
+            app:iconNormal="@drawable/item4_before"
+            app:iconSelected="@drawable/item4_after"
+            app:iconWidth="30dp"
+            app:itemMarginTop="-3dp"
+            app:itemText="评价"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/tab_normal_color"
+            app:textColorSelected="@color/tab_selected_color" />
+
+    </com.chaychan.library.BottomBarLayout>
 
 </LinearLayout>

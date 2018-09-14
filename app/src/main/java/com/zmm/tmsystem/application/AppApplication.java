@@ -115,7 +115,8 @@ public class AppApplication extends Application {
         JMessageClient.setDebugMode(true);
 
         //设置Notification的模式
-        JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND | JMessageClient.FLAG_NOTIFY_WITH_LED | JMessageClient.FLAG_NOTIFY_WITH_VIBRATE);
+//        JMessageClient.setNotificationFlag(JMessageClient.FLAG_NOTIFY_WITH_SOUND | JMessageClient.FLAG_NOTIFY_WITH_LED | JMessageClient.FLAG_NOTIFY_WITH_VIBRATE);
+        JMessageClient.setNotificationFlag(JMessageClient.NOTI_MODE_SILENCE);
 
         //注册Notification点击的接收器
         new NotificationClickEventReceiver(getApplicationContext());

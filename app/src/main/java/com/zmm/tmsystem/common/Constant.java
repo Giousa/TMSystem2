@@ -77,6 +77,10 @@ public class Constant {
     public static final String UPDATE_STUDENT_CHILDCARE = "UPDATE_STUDENT_CHILDCARE";
     public static final String ADD_CHILDCARE_STUDENT = "ADD_CHILDCARE_STUDENT";
 
+    //通信消息
+    public static final String UN_READ_MSG_COUNT = "UN_READ_MSG_COUNT";
+
+
 
     public static final String ITEM_COMMENTS = "ITEM_COMMENTS";
 
@@ -107,7 +111,6 @@ public class Constant {
     //-----------------学生信息点击------------------
     public static final String CHILDCARE_STUDENT_COUNT = "CHILDCARE_STUDENT_COUNT";
     public static final String CRAM_STUDENT_COUNT = "CRAM_STUDENT_COUNT";
-    public static final String EVALUATE_STUDENT_COUNT = "EVALUATE_STUDENT_COUNT";
 
 
 
