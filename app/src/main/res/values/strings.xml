@@ -70,4 +70,19 @@
     <string name="student_update_success">更新资料成功</string>
 
 
+
+    <!--极光IM-->
+
+    <string name="draft">[草稿]</string>
+    <string name="jmui_picture">图片</string>
+    <string name="type_picture">[图片]</string>
+    <string name="type_voice">[语音]</string>
+    <string name="type_location">[位置]</string>
+    <string name="type_file">[文件]</string>
+    <string name="type_smallvideo">[小视频]</string>
+    <string name="type_video">[视频]</string>
+    <string name="jmui_server_803008">消息已发出，但被对方拒收了。</string>
+    <string name="type_custom">[自定义消息]</string>
+
+
 </resources>

@@ -2,7 +2,9 @@ package com.zmm.tmsystem.ui.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -13,6 +15,9 @@ import com.zmm.tmsystem.common.utils.DateUtils;
 
 import java.text.ParseException;
 
+import cn.jpush.im.android.api.content.CustomContent;
+import cn.jpush.im.android.api.content.PromptContent;
+import cn.jpush.im.android.api.content.TextContent;
 import cn.jpush.im.android.api.enums.ContentType;
 import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
@@ -39,6 +44,9 @@ public class ChatAdapter extends BaseQuickAdapter<Conversation,BaseViewHolder>{
 
         Message latestMessage = conversation.getLatestMessage();
 
+        TextView unReadText = helper.getView(R.id.tv_chat_unread);
+
+
         if(latestMessage != null){
             UserInfo fromUser = latestMessage.getFromUser();
             System.out.println("from username = "+ fromUser.getUserName());
@@ -54,28 +62,63 @@ public class ChatAdapter extends BaseQuickAdapter<Conversation,BaseViewHolder>{
 
             long createTime = latestMessage.getCreateTime();
             helper.setText(R.id.tv_chat_time, DateUtils.isShowTime(createTime));
+
+            ContentType contentType = latestMessage.getContentType();
+            String contentStr;
+
+            switch (contentType) {
+                case image:
+                    contentStr = mContext.getString(R.string.type_picture);
+                    break;
+                case voice:
+                    contentStr = mContext.getString(R.string.type_voice);
+                    break;
+                case location:
+                    contentStr = mContext.getString(R.string.type_location);
+                    break;
+                case file:
+                    String extra = latestMessage.getContent().getStringExtra("video");
+                    if (!TextUtils.isEmpty(extra)) {
+                        contentStr = mContext.getString(R.string.type_smallvideo);
+                    } else {
+                        contentStr = mContext.getString(R.string.type_file);
+                    }
+                    break;
+                case video:
+                    contentStr = mContext.getString(R.string.type_video);
+                    break;
+                case custom:
+                    CustomContent customContent = (CustomContent) latestMessage.getContent();
+                    Boolean isBlackListHint = customContent.getBooleanValue("blackList");
+                    if (isBlackListHint != null && isBlackListHint) {
+                        contentStr = mContext.getString(R.string.jmui_server_803008);
+                    } else {
+                        contentStr = mContext.getString(R.string.type_custom);
+                    }
+                    break;
+                case prompt:
+                    contentStr = ((PromptContent) latestMessage.getContent()).getPromptText();
+                    break;
+                default:
+                    contentStr = ((TextContent) latestMessage.getContent()).getText();
+                    break;
+            }
+
+
+            helper.setText(R.id.tv_chat_content, contentStr);
+
+        }else {
+            helper.setText(R.id.tv_chat_time, "");
+            helper.setText(R.id.tv_chat_content, "");
+
         }
-
-
-        ContentType latestType = conversation.getLatestType();
-        switch (latestType){
-
-            case text:
-                String latestText = conversation.getLatestText();
-                helper.setText(R.id.tv_chat_content, latestText);
-
-                break;
-
-            case image:
-                System.out.println("最后一条是图片");
-                helper.setText(R.id.tv_chat_content, "[图片]");
-
-                break;
-        }
-
-
+        
         int unReadMsgCnt = conversation.getUnReadMsgCnt();
-        helper.setText(R.id.tv_chat_unread, unReadMsgCnt+"");
+        if(unReadMsgCnt == 0){
+            unReadText.setVisibility(View.INVISIBLE);
+        }else {
+            unReadText.setText(unReadMsgCnt+"");
+        }
 
 
         ImageView imageView = helper.getView(R.id.iv_chat_icon);
