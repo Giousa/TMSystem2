@@ -132,6 +132,7 @@ public class TermActivity extends BaseActivity<TermPresenter> implements TermCon
                 TermBean termBean = mTermAdapter.getItem(position);
                 mACache.put(Constant.TERM,termBean);
                 mTermAdapter.setChecked(termBean.getId());
+
                 RxBus.getDefault().post(Constant.UPDATE_TITLE);
             }
         });

@@ -215,7 +215,7 @@ public class TeacherInfoActivity extends BaseActivity<TeacherPresenter> implemen
     @Override
     public void updateSuccess(String title, TeacherBean teacherBean) {
 
-        RxBus.getDefault().post(Constant.UPDATE_TEACHER);
+//        RxBus.getDefault().post(Constant.UPDATE_TEACHER);
 
         ToastUtils.SimpleToast(this, "更新" + title + "成功");
         initData(teacherBean);

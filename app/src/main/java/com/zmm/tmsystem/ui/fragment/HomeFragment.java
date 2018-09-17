@@ -126,7 +126,7 @@ public class HomeFragment extends ProgressFragment<HomePresenter> implements Hom
         }
 
 
-        operateBus();
+//        operateBus();
 
     }
 
@@ -286,6 +286,25 @@ public class HomeFragment extends ProgressFragment<HomePresenter> implements Hom
 
                 break;
         }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        TermBean termBean = (TermBean) mACache.getAsObject(Constant.TERM);
+        if(termBean != null){
+            mPresenter.getStatisticsInfo(termBean.getId());
+
+        }else {
+            llShow.setVisibility(View.GONE);
+            llChartShow.setVisibility(View.GONE);
+        }
+
+        TeacherBean teacherBean = (TeacherBean) mACache.getAsObject(Constant.TEACHER);
+        mPresenter.getTeacherById(teacherBean.getId());
+
     }
 
     /**

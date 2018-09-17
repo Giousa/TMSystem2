@@ -102,6 +102,12 @@ public class ManageFragment extends ProgressFragment<ChildcareStudentPresenter> 
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        TermBean termBean = (TermBean) mACache.getAsObject(Constant.TERM);
+        mPresenter.queryAllChildcareStudents(termBean.getId());
+    }
 
     @Override
     public void querySuccess(List<ChildcareStudentBean> childcareStudentBeans) {
@@ -161,8 +167,8 @@ public class ManageFragment extends ProgressFragment<ChildcareStudentPresenter> 
                                     mStudentAdapter.setNewData(null);
 
                                 } else {
-                                    System.out.println("加载新托管学生...termBean.getId() = " + termBean.getId());
-                                    mPresenter.queryAllChildcareStudents(termBean.getId());
+//                                    System.out.println("加载新托管学生...termBean.getId() = " + termBean.getId());
+//                                    mPresenter.queryAllChildcareStudents(termBean.getId());
                                 }
                             }
 
