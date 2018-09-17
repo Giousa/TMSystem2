@@ -80,6 +80,8 @@ public class ChatFragment extends ProgressFragment {
                 Conversation conversation = (Conversation) adapter.getData().get(position);
                 String userName = conversation.getLatestMessage().getFromUser().getUserName();
                 ToastUtils.SimpleToast(mContext,userName);
+
+
             }
         });
 

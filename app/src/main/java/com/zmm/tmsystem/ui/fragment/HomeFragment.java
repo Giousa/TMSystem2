@@ -252,22 +252,22 @@ public class HomeFragment extends ProgressFragment<HomePresenter> implements Hom
         ArrayList<Integer> colors3 = new ArrayList<>();
 
         if (statisticsBean.getRongguang() != 0) {
-            entries3.add(new PieEntry(statisticsBean.getRongguang(), "荣光"));
+            entries3.add(new PieEntry(statisticsBean.getRongguang(), "荣光:"+statisticsBean.getRongguang()+"人"));
             colors3.add(getResources().getColor(R.color.md_indigo_A700));
         }
 
         if (statisticsBean.getShiyan() != 0) {
-            entries3.add(new PieEntry(statisticsBean.getShiyan(), "实验"));
+            entries3.add(new PieEntry(statisticsBean.getShiyan(), "实验:"+statisticsBean.getShiyan()+"人"));
             colors3.add(getResources().getColor(R.color.md_deep_orange_600));
         }
 
         if (statisticsBean.getWuchu() != 0) {
-            entries3.add(new PieEntry(statisticsBean.getWuchu(), "五初"));
+            entries3.add(new PieEntry(statisticsBean.getWuchu(), "五初:"+statisticsBean.getWuchu()+"人"));
             colors3.add(getResources().getColor(R.color.md_cyan_600));
         }
 
         if (statisticsBean.getZhucai() != 0) {
-            entries3.add(new PieEntry(statisticsBean.getZhucai(), "铸才"));
+            entries3.add(new PieEntry(statisticsBean.getZhucai(), "铸才:"+statisticsBean.getZhucai()+"人"));
             colors3.add(getResources().getColor(R.color.md_deep_purple_400));
         }
 
