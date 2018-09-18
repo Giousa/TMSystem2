@@ -106,7 +106,9 @@ public class ManageFragment extends ProgressFragment<ChildcareStudentPresenter> 
     public void onResume() {
         super.onResume();
         TermBean termBean = (TermBean) mACache.getAsObject(Constant.TERM);
-        mPresenter.queryAllChildcareStudents(termBean.getId());
+        if(termBean != null){
+            mPresenter.queryAllChildcareStudents(termBean.getId());
+        }
     }
 
     @Override
