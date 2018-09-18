@@ -19,6 +19,7 @@ import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.rx.RxBus;
 import com.zmm.tmsystem.ui.activity.ChatActivity;
 import com.zmm.tmsystem.ui.adapter.ChatAdapter;
+import com.zmm.tmsystem.ui.widget.chat.ui.ChatActivity2;
 
 import java.util.List;
 
@@ -86,7 +87,7 @@ public class ChatFragment extends ProgressFragment {
                 ToastUtils.SimpleToast(mContext,userName);
                 String targetId = ((UserInfo) conversation.getTargetInfo()).getUserName();
 
-                Intent intent = new Intent(mContext,ChatActivity.class);
+                Intent intent = new Intent(mContext,ChatActivity2.class);
                 intent.putExtra(Constant.TARGET_ID, targetId);
                 intent.putExtra(Constant.TARGET_NAME, userName);
                 intent.putExtra(Constant.TARGET_APP_KEY, conversation.getTargetAppKey());

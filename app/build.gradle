@@ -67,12 +67,13 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    implementation rootProject.ext.dependencies["appcompat-v7"]
+
+    //    implementation rootProject.ext.dependencies["appcompat-v7"]
     implementation 'com.android.support:appcompat-v7:25.3.1'
     implementation 'com.android.support:recyclerview-v7:25.3.1'
     implementation 'com.android.support:design:25.3.1'
 
-//    implementation rootProject.ext.dependencies["design"]
+    //    implementation rootProject.ext.dependencies["design"]
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -155,7 +156,7 @@ dependencies {
     //持久化Cookie
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
-//    implementation rootProject.ext.dependencies["recycler-view"]
+    //    implementation rootProject.ext.dependencies["recycler-view"]
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
 
     //cardview
@@ -166,24 +167,26 @@ dependencies {
 
     //图表
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
-
     compile 'com.nineoldandroids:library:2.4.0'
 
     //荣誉证书 图片缩放
     compile 'com.bm.photoview:library:1.4.1'
-
     compile 'com.android.support:multidex:1.0.3'
 
     //事件
     compile 'org.greenrobot:eventbus:3.0.0'
 
     //底部导航栏
-    compile 'com.github.chaychan:BottomBarLayout:1.1.2' //建议使用最新版本
+    compile 'com.github.chaychan:BottomBarLayout:1.1.2'
 
-//    implementation 'com.github.smashinggit:Android-NavMenuLayout:v1.0.0'
+    //建议使用最新版本
+
+    //    implementation 'com.github.smashinggit:Android-NavMenuLayout:v1.0.0'
 
     //时间
-//    compile 'joda-time:joda-time:2.10'
 
-
+    //    compile 'joda-time:joda-time:2.10'
+    compile 'com.github.w446108264:AndroidEmoji:1.0.0'
+    implementation project(':reclib-qq')
+    implementation project(':reclib-testemoticons')
 }

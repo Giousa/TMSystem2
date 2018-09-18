@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.model.Message;
 
 
 /**
@@ -34,6 +35,9 @@ import cn.jpush.im.android.api.JMessageClient;
 public class AppApplication extends Application {
 
     private static String tag = "AppApplication";
+    private static Context mContext;
+
+    public static List<Message> forwardMsg = new ArrayList<>();
 
 
     private AppComponent mAppComponent;
@@ -62,6 +66,8 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        mContext = this.getApplicationContext();
         mBaseActivityList = new ArrayList<>();
         mAppComponent = DaggerAppComponent.builder().httpModule(new HttpModule()).appModule(new AppModule(this)).build();
 
@@ -73,6 +79,9 @@ public class AppApplication extends Application {
 
     }
 
+    public static Context getContext() {
+        return mContext;
+    }
 
     /**
      * 初始化拍照

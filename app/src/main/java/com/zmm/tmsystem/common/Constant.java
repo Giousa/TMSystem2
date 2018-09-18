@@ -11,6 +11,13 @@ public class Constant {
 
 
 
+    public static final int IMAGE_MESSAGE = 1;
+    public static final int TAKE_PHOTO_MESSAGE = 2;
+    public static final int TAKE_LOCATION = 3;
+    public static final int FILE_MESSAGE = 4;
+    public static final int TACK_VIDEO = 5;
+    public static final int TACK_VOICE = 6;
+    public static final int BUSINESS_CARD = 7;
 
     public static final String BASE_URL = "http://192.168.253.7:8082/tms/";
 
@@ -117,6 +124,12 @@ public class Constant {
     public static final String TARGET_ID = "TARGET_ID";
     public static final String TARGET_NAME = "TARGET_NAME";
     public static final String TARGET_APP_KEY = "TARGET_APP_KEY";
+
+
+    //聊天
+    public static String PICTURE_DIR = "sdcard/JChatDemo/pictures/";
+    public static String FILE_DIR = "sdcard/JChatDemo/recvFiles/";
+
 
 
 }
