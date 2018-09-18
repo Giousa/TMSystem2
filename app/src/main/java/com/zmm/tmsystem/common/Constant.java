@@ -112,6 +112,11 @@ public class Constant {
     public static final String CHILDCARE_STUDENT_COUNT = "CHILDCARE_STUDENT_COUNT";
     public static final String CRAM_STUDENT_COUNT = "CRAM_STUDENT_COUNT";
 
+    //-----------------聊天信息点击------------------
+    public static final String CHAT_CONVERSATION = "CHAT_CONVERSATION";
+    public static final String TARGET_ID = "TARGET_ID";
+    public static final String TARGET_NAME = "TARGET_NAME";
+    public static final String TARGET_APP_KEY = "TARGET_APP_KEY";
 
 
 }

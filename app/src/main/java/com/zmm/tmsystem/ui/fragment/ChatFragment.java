@@ -1,6 +1,8 @@
 package com.zmm.tmsystem.ui.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -15,6 +17,7 @@ import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.rx.RxBus;
+import com.zmm.tmsystem.ui.activity.ChatActivity;
 import com.zmm.tmsystem.ui.adapter.ChatAdapter;
 
 import java.util.List;
@@ -22,6 +25,7 @@ import java.util.List;
 import butterknife.BindView;
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.model.Conversation;
+import cn.jpush.im.android.api.model.UserInfo;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
@@ -80,6 +84,13 @@ public class ChatFragment extends ProgressFragment {
                 Conversation conversation = (Conversation) adapter.getData().get(position);
                 String userName = conversation.getLatestMessage().getFromUser().getUserName();
                 ToastUtils.SimpleToast(mContext,userName);
+                String targetId = ((UserInfo) conversation.getTargetInfo()).getUserName();
+
+                Intent intent = new Intent(mContext,ChatActivity.class);
+                intent.putExtra(Constant.TARGET_ID, targetId);
+                intent.putExtra(Constant.TARGET_NAME, userName);
+                intent.putExtra(Constant.TARGET_APP_KEY, conversation.getTargetAppKey());
+                startActivity(intent);
 
 
             }

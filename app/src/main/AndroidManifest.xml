@@ -200,7 +200,11 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"/>
 
-
+        <!--聊天-->
+        <activity
+            android:name=".ui.activity.ChatActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"/>
 
 
         <!-- Required SDK 核心功能-->
