@@ -935,7 +935,11 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
 //                }
                 break;
             case Constant.TAKE_PHOTO_MESSAGE:
-                ToastUtils.SimpleToast(mContext, "拍照 图片");
+
+                ImagePicker.getInstance().setCrop(false);
+                Intent intent2 = new Intent(this, ImageGridActivity.class);
+                intent2.putExtra(ImageGridActivity.EXTRAS_TAKE_PICKERS,true); // 是否是直接打开相机
+                startActivityForResult(intent2, 100);
 
 //                if ((ContextCompat.checkSelfPermission(ChatActivity2.this, Manifest.permission.CAMERA)
 //                        != PackageManager.PERMISSION_GRANTED) || (ContextCompat.checkSelfPermission(ChatActivity2.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)

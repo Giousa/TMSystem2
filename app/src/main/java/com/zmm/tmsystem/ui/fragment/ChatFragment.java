@@ -84,7 +84,6 @@ public class ChatFragment extends ProgressFragment {
 
                 Conversation conversation = (Conversation) adapter.getData().get(position);
                 String userName = conversation.getLatestMessage().getFromUser().getUserName();
-                ToastUtils.SimpleToast(mContext,userName);
                 String targetId = ((UserInfo) conversation.getTargetInfo()).getUserName();
 
                 Intent intent = new Intent(mContext,ChatActivity2.class);
@@ -102,15 +101,6 @@ public class ChatFragment extends ProgressFragment {
         List<Conversation> conversationList = JMessageClient.getConversationList();
 
         mChatAdapter.setNewData(conversationList);
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        System.out.println("聊天界面");
-
-
     }
 
 
