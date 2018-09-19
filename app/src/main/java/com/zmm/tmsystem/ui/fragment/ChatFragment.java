@@ -83,13 +83,33 @@ public class ChatFragment extends ProgressFragment {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 
                 Conversation conversation = (Conversation) adapter.getData().get(position);
-                String userName = conversation.getLatestMessage().getFromUser().getUserName();
-                String targetId = ((UserInfo) conversation.getTargetInfo()).getUserName();
 
+                //这个是最后一条信息的发送人
+//                String userName = conversation.getLatestMessage().getFromUser().getUserName();
+//                String nickName = conversation.getLatestMessage().getFromUser().getNickname();
+
+                UserInfo userInfo = (UserInfo) conversation.getTargetInfo();
+
+                String userName = userInfo.getUserName();
+                String nickName = userInfo.getNickname();
+
+                if(TextUtils.isEmpty(userName)){
+                    ToastUtils.SimpleToast(mContext,"当前用户异常");
+                    return;
+                }
+
+                System.out.println("当前用户的key  conversation.getTargetAppKey() = "+conversation.getTargetAppKey());
+                //其实就是手机号
+                System.out.println("当前用户的id  targetId = "+userName);
                 Intent intent = new Intent(mContext,ChatActivity2.class);
-                intent.putExtra(Constant.TARGET_ID, targetId);
-                intent.putExtra(Constant.TARGET_NAME, userName);
-                intent.putExtra(Constant.TARGET_APP_KEY, conversation.getTargetAppKey());
+                intent.putExtra(Constant.TARGET_ID, userName);
+                if(!TextUtils.isEmpty(nickName)){
+                    intent.putExtra(Constant.TARGET_NAME, nickName);
+                }else {
+                    intent.putExtra(Constant.TARGET_NAME, userName);
+                }
+                //这里采用当前账户下通信，无需传递key值
+//                intent.putExtra(Constant.TARGET_APP_KEY, conversation.getTargetAppKey());
                 startActivity(intent);
 
 

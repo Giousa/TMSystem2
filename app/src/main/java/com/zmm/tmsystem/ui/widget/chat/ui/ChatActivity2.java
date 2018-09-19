@@ -91,17 +91,11 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
     private boolean mIsSingle = true;
     private Conversation mConv;
     private String mTargetId;
-    private String mTargetAppKey;
     private Activity mContext;
     private ChattingListAdapter mChatAdapter;
     private static final int REFRESH_LAST_PAGE = 0x1023;
-    private static final int REFRESH_CHAT_TITLE = 0x1024;
-    private static final int REFRESH_GROUP_NAME = 0x1025;
-    private static final int REFRESH_GROUP_NUM = 0x1026;
 
-    private UserInfo mMyInfo;
     private boolean mShowSoftInput = false;
-    private List<UserInfo> forDel = new ArrayList<>();
 
     Window mWindow;
     InputMethodManager mImm;
@@ -134,19 +128,15 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
         SimpleCommonUtils.initEmoticonsEditText(ekBar.getEtChat());
         Intent intent = getIntent();
         mTargetId = intent.getStringExtra(Constant.TARGET_ID);
-        mTargetAppKey = intent.getStringExtra(Constant.TARGET_APP_KEY);
         mTitle = intent.getStringExtra(Constant.TARGET_NAME);
-        mMyInfo = JMessageClient.getMyInfo();
-        if (!TextUtils.isEmpty(mTargetId)) {
-            //单聊
-            mIsSingle = true;
-            mChatView.setChatTitle(mTitle);
-            mConv = JMessageClient.getSingleConversation(mTargetId, mTargetAppKey);
-            if (mConv == null) {
-                mConv = Conversation.createSingleConversation(mTargetId, mTargetAppKey);
-            }
-            mChatAdapter = new ChattingListAdapter(mContext, mConv, longClickListener);
+        //单聊
+        mIsSingle = true;
+        mChatView.setChatTitle(mTitle);
+        mConv = JMessageClient.getSingleConversation(mTargetId, null);
+        if (mConv == null) {
+            mConv = Conversation.createSingleConversation(mTargetId, null);
         }
+        mChatAdapter = new ChattingListAdapter(mContext, mConv, longClickListener);
         String draft = intent.getStringExtra(DRAFT);
         if (draft != null && !TextUtils.isEmpty(draft)) {
             ekBar.getEtChat().setText(draft);
@@ -235,9 +225,6 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                 JMessageClient.sendMessage(msg, options);
                 mChatAdapter.addMsgFromReceiptToList(msg);
                 ekBar.getEtChat().setText("");
-                if (forDel != null) {
-                    forDel.clear();
-                }
             }
         });
         //切换语音输入
@@ -416,7 +403,7 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                     UserInfo userInfo = (UserInfo) message.getTargetInfo();
                     String targetId = userInfo.getUserName();
                     String appKey = userInfo.getAppKey();
-                    if (mIsSingle && targetId.equals(mTargetId) && appKey.equals(mTargetAppKey)) {
+                    if (mIsSingle && targetId.equals(mTargetId) && appKey.equals(null)) {
                         Message lastMsg = mChatAdapter.getLastMsg();
                         if (lastMsg == null || message.getId() != lastMsg.getId()) {
                             mChatAdapter.addMsgToList(message);
@@ -443,7 +430,7 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
             UserInfo userInfo = (UserInfo) conv.getTargetInfo();
             String targetId = userInfo.getUserName();
             String appKey = userInfo.getAppKey();
-            if (mIsSingle && targetId.equals(mTargetId) && appKey.equals(mTargetAppKey)) {
+            if (mIsSingle && targetId.equals(mTargetId) && appKey.equals(null)) {
                 List<Message> singleOfflineMsgList = event.getOfflineMessageList();
                 if (singleOfflineMsgList != null && singleOfflineMsgList.size() > 0) {
                     mChatView.setToBottom();
