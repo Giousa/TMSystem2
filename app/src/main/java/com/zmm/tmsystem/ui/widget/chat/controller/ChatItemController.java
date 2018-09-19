@@ -48,6 +48,7 @@ import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.ui.widget.chat.adapter.ChattingListAdapter;
 import com.zmm.tmsystem.ui.widget.chat.adapter.ChattingListAdapter.ViewHolder;
+import com.zmm.tmsystem.ui.widget.chat.ui.BrowserViewPagerActivity;
 import com.zmm.tmsystem.ui.widget.chat.utils.FileHelper;
 import com.zmm.tmsystem.ui.widget.chat.utils.FileUtils;
 import com.zmm.tmsystem.ui.widget.chat.utils.HandleResponseCode;
@@ -1183,20 +1184,21 @@ public class ChatItemController {
                     break;
                 case image:
                     if (holder.picture != null && v.getId() == holder.picture.getId()) {
-                        ToastUtils.SimpleToast(mContext,"image");
-//                        Intent intent = new Intent();
-//                        intent.putExtra(Constant.TARGET_ID, mConv.getTargetId());
-//                        intent.putExtra("msgId", msg.getId());
-//                        if (mConv.getType() == ConversationType.group) {
-//                            GroupInfo groupInfo = (GroupInfo) mConv.getTargetInfo();
-//                            intent.putExtra(JGApplication.GROUP_ID, groupInfo.getGroupID());
-//                        }
-//                        intent.putExtra(JGApplication.TARGET_APP_KEY, mConv.getTargetAppKey());
-//                        intent.putExtra("msgCount", mMsgList.size());
-//                        intent.putIntegerArrayListExtra(JGApplication.MsgIDs, getImgMsgIDList());
-//                        intent.putExtra("fromChatActivity", true);
+                        //TODO  预览图片
+//                        ToastUtils.SimpleToast(mContext,"image");
+
+
+                        Intent intent = new Intent(mContext, BrowserViewPagerActivity.class);
+                        intent.putExtra(Constant.TARGET_ID, mConv.getTargetId());
+                        intent.putExtra("msgId", msg.getId());
+
+                        intent.putExtra(Constant.TARGET_APP_KEY, mConv.getTargetAppKey());
+                        intent.putExtra("msgCount", mMsgList.size());
+                        intent.putExtra("fromChatActivity", true);
+                        intent.putIntegerArrayListExtra(Constant.MsgIDs, getImgMsgIDList());
+
 //                        intent.setClass(mContext, BrowserViewPagerActivity.class);
-//                        mContext.startActivity(intent);
+                        mContext.startActivity(intent);
                     }
                     break;
                 case location:

@@ -8,7 +8,6 @@ import java.io.Serializable;
  * @author Ivan
  * @version V1.0
  * @Package com.cniao5.cniao5play.bean
- * @Description: ${TODO}(用一句话描述该文件做什么)
  * @date
  */
 

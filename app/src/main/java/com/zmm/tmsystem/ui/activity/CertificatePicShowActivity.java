@@ -1,6 +1,5 @@
 package com.zmm.tmsystem.ui.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -14,7 +13,6 @@ import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.ui.widget.TitleBar;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Description:

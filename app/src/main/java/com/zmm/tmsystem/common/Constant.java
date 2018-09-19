@@ -129,6 +129,10 @@ public class Constant {
     //聊天
     public static String PICTURE_DIR = "sdcard/JChatDemo/pictures/";
     public static String FILE_DIR = "sdcard/JChatDemo/recvFiles/";
+    public static String MsgIDs = "msgIDs";
+    public static String POSITION = "position";
+    public static int RESULT_CODE_SELECT_PICTURE = 8;
+    public static int RESULT_CODE_BROWSER_PICTURE = 13;
 
 
 

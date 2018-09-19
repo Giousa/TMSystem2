@@ -575,7 +575,8 @@ public class ChattingListAdapter extends BaseAdapter {
 
                 @Override
                 public void onClick(View arg0) {
-                    ToastUtils.SimpleToast(mContext,"我被点击了");
+                    //TODO 点击聊天头像
+//                    ToastUtils.SimpleToast(mContext,"我被点击了");
 //                    Intent intent = new Intent();
 //                    if (msg.getDirect() == MessageDirect.send) {
 //                        intent.putExtra(JGApplication.TARGET_ID, JMessageClient.getMyInfo().getUserName());

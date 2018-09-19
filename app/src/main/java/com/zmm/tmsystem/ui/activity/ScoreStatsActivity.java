@@ -262,7 +262,6 @@ public class ScoreStatsActivity extends BaseActivity<ScorePresenter> implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
 }

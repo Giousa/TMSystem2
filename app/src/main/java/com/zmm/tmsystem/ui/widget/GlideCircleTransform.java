@@ -15,7 +15,6 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
  * @author Ivan
  * @version V1.0
  * @Package com.cniao5.cniao5market.common.imageloader
- * @Description: ${TODO}(用一句话描述该文件做什么)
  * @date
  */
 
