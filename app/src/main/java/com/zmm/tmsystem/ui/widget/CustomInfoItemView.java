@@ -61,8 +61,10 @@ public class CustomInfoItemView extends LinearLayout{
         //获取设置的自定义属性
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomInfoItemView);
         String titlename = typedArray.getString(R.styleable.CustomInfoItemView_title);
-        final int isShow = typedArray.getInteger(0,R.styleable.CustomInfoItemView_isShowPic);
-        if(isShow == 1){
+//        final int isShow = typedArray.getInteger(0,R.styleable.CustomInfoItemView_isShowPic);
+        String isShow = typedArray.getString(R.styleable.CustomInfoItemView_isShowPic);
+
+        if(isShow.equals("1")){
             isShowPic = true;
         }else {
             isShowPic = false;
