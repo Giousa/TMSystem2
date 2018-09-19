@@ -19,7 +19,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.Toast;
 
+import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
+import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.sj.emoji.EmojiBean;
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.bean.Event;
@@ -46,6 +48,7 @@ import com.zmm.tmsystem.ui.widget.keyboard.utils.EmoticonsKeyboardUtils;
 import com.zmm.tmsystem.ui.widget.keyboard.widget.EmoticonsEditText;
 import com.zmm.tmsystem.ui.widget.keyboard.widget.FuncLayout;
 
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +58,7 @@ import butterknife.ButterKnife;
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.callback.GetGroupInfoCallback;
 import cn.jpush.im.android.api.content.EventNotificationContent;
+import cn.jpush.im.android.api.content.ImageContent;
 import cn.jpush.im.android.api.content.TextContent;
 import cn.jpush.im.android.api.enums.ContentType;
 import cn.jpush.im.android.api.enums.ConversationType;
@@ -127,6 +131,7 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
     private final UIHandler mUIHandler = new UIHandler(this);
     private boolean mAtAll = false;
 
+    private ArrayList<ImageItem> mImages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -910,10 +915,14 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
     }
 
     public void onEventMainThread(ImageEvent event) {
-        Intent intent;
+
         switch (event.getFlag()) {
             case Constant.IMAGE_MESSAGE:
-                ToastUtils.SimpleToast(mContext, "图片");
+//                ToastUtils.SimpleToast(mContext, "图片");
+
+                ImagePicker.getInstance().setCrop(false);
+                Intent intent = new Intent(this, ImageGridActivity.class);
+                startActivityForResult(intent, 100);
 
 //                int from = PickImageActivity.FROM_LOCAL;
 //                int requestCode = RequestCode.PICK_IMAGE;
@@ -995,7 +1004,35 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
+            if (data != null && requestCode == 100) {
+
+                mImages = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+                if(mImages != null && mImages.size() > 0){
+
+                    String path = mImages.get(0).path;
+                    System.out.println("选择图片："+ path);
+
+                    File file= new File(path);
+
+                    ImageContent.createImageContentAsync(file, new ImageContent.CreateImageContentCallback() {
+                        @Override
+                        public void gotResult(int responseCode, String responseMessage, ImageContent imageContent) {
+                            if (responseCode == 0) {
+                                Message msg = mConv.createSendMessage(imageContent);
+                                handleSendMsg(msg.getId());
+                            }
+                        }
+                    });
+                }
+
+            } else {
+                System.out.println("没有数据");
+            }
+        }
+
+//        switch (requestCode) {
 //            case RequestCode.PICK_IMAGE://4
 //                onPickImageActivityResult(requestCode, data);
 //                break;
@@ -1112,7 +1149,7 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
 //                }
 //                break;
 //        }
-        }
+//        }
     }
 
 

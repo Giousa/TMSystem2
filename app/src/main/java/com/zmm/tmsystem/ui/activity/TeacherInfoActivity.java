@@ -192,6 +192,9 @@ public class TeacherInfoActivity extends BaseActivity<TeacherPresenter> implemen
 
     private void uloadIcon() {
 
+
+        ImagePicker.getInstance().setCrop(true);
+
         Intent intent = new Intent(this, ImageGridActivity.class);
         startActivityForResult(intent, 100);
 

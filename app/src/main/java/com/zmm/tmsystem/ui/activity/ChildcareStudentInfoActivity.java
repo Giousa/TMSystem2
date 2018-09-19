@@ -433,6 +433,9 @@ public class ChildcareStudentInfoActivity extends BaseActivity<ChildcareStudentP
      * 上传头像
      */
     private void uloadIcon() {
+
+        ImagePicker.getInstance().setCrop(true);
+
         Intent intent = new Intent(this, ImageGridActivity.class);
         startActivityForResult(intent, 100);
     }

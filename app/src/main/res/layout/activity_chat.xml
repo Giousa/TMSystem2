@@ -34,10 +34,10 @@
 
 
                 <LinearLayout
+                    android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/jmui_return_btn"
                     android:orientation="horizontal">
 
                     <TextView
@@ -61,6 +61,7 @@
                 </LinearLayout>
 
                 <ImageButton
+                    android:visibility="gone"
                     android:id="@+id/jmui_right_btn"
                     android:layout_width="@dimen/title_bar_height"
                     android:layout_height="match_parent"
