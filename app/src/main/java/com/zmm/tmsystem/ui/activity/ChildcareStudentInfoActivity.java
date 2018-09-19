@@ -104,7 +104,7 @@ public class ChildcareStudentInfoActivity extends BaseActivity<ChildcareStudentP
 
         initData(mChildcareStudentBean);
 
-        operateBus();
+//        operateBus();
     }
 
 
@@ -112,8 +112,7 @@ public class ChildcareStudentInfoActivity extends BaseActivity<ChildcareStudentP
     @Override
     protected void onResume() {
         super.onResume();
-        //头像单选
-        ImagePicker.getInstance().setMultiMode(false);
+
 
         initMoneyData();
     }
@@ -124,6 +123,9 @@ public class ChildcareStudentInfoActivity extends BaseActivity<ChildcareStudentP
     private void initMoneyData() {
 
         mPresenter.getMoneyByStudentId(mChildcareStudentBean.getId());
+
+        mPresenter.findChildcareStudentById(mChildcareStudentBean.getId());
+
     }
 
     private void initToolBar() {
@@ -434,7 +436,10 @@ public class ChildcareStudentInfoActivity extends BaseActivity<ChildcareStudentP
      */
     private void uloadIcon() {
 
+        //可以剪切
         ImagePicker.getInstance().setCrop(true);
+        //头像单选
+        ImagePicker.getInstance().setMultiMode(false);
 
         Intent intent = new Intent(this, ImageGridActivity.class);
         startActivityForResult(intent, 100);

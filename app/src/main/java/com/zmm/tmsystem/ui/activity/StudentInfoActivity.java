@@ -353,7 +353,7 @@ public class StudentInfoActivity extends BaseActivity<StudentPresenter> implemen
     @Override
     public void addSuccess(StudentBean studentBean) {
         ToastUtils.SimpleToast(this, getResources().getString(R.string.student_add_success));
-        RxBus.getDefault().post(Constant.UPDATE_STUDENT);
+//        RxBus.getDefault().post(Constant.UPDATE_STUDENT);
         finish();
     }
 
@@ -373,14 +373,14 @@ public class StudentInfoActivity extends BaseActivity<StudentPresenter> implemen
                 ));
 
         mBtnSelectConfirm.setVisibility(View.GONE);
-        RxBus.getDefault().post(Constant.UPDATE_STUDENT);
+//        RxBus.getDefault().post(Constant.UPDATE_STUDENT);
 
     }
 
     @Override
     public void deleteStudent(String s) {
         ToastUtils.SimpleToast(this, s);
-        RxBus.getDefault().post(Constant.UPDATE_STUDENT);
+//        RxBus.getDefault().post(Constant.UPDATE_STUDENT);
         finish();
     }
 

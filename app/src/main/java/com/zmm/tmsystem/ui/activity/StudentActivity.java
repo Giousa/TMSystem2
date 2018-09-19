@@ -90,7 +90,7 @@ public class StudentActivity extends BaseActivity<StudentPresenter> implements S
 
         initData();
 
-        operateBus();
+//        operateBus();
 
 
     }
@@ -317,6 +317,5 @@ public class StudentActivity extends BaseActivity<StudentPresenter> implements S
      */
     private void requestNewData() {
         mPresenter.queryAllStudents(mTId);
-
     }
 }
