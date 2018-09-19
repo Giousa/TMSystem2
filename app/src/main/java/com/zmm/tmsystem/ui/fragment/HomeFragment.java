@@ -207,7 +207,9 @@ public class HomeFragment extends ProgressFragment<HomePresenter> implements Hom
 
 
         //显示数据
-        llShow.setVisibility(View.VISIBLE);
+        if(llShow != null){
+            llShow.setVisibility(View.VISIBLE);
+        }
 
         tvChildcareName.setText("托管周期：" + statisticsBean.getTitle());
         tvNumTotal.setText("总人数:  " + statisticsBean.getTotal() + "人");
