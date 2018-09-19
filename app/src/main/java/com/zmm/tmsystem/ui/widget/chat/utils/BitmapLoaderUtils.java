@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

@@ -17,8 +17,8 @@ import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.ui.activity.LoginActivity;
 import com.zmm.tmsystem.ui.activity.MainActivity;
 import com.zmm.tmsystem.ui.widget.chat.DialogCreator;
-import com.zmm.tmsystem.ui.widget.chat.FileHelper;
-import com.zmm.tmsystem.ui.widget.chat.SharePreferenceManager;
+import com.zmm.tmsystem.ui.widget.chat.utils.FileHelper;
+import com.zmm.tmsystem.ui.widget.chat.utils.SharePreferenceManager;
 import com.zmm.tmsystem.ui.widget.chat.ui.swipeback.app.SwipeBackActivity;
 
 import java.io.File;

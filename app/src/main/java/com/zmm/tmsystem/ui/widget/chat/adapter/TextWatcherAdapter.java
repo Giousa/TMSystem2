@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.adapter;
 
 import android.text.Editable;
 import android.text.TextWatcher;

@@ -23,6 +23,10 @@ import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.application.AppApplication;
 import com.zmm.tmsystem.bean.Event;
 import com.zmm.tmsystem.bean.EventType;
+import com.zmm.tmsystem.ui.widget.chat.controller.ActivityController;
+import com.zmm.tmsystem.ui.widget.chat.utils.HandleResponseCode;
+import com.zmm.tmsystem.ui.widget.chat.utils.IdHelper;
+import com.zmm.tmsystem.ui.widget.chat.utils.SharePreferenceManager;
 
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.content.FileContent;

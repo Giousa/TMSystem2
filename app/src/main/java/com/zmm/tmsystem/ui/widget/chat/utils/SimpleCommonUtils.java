@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.utils;
 
 import android.content.Context;
 import android.text.Editable;
@@ -17,6 +17,11 @@ import com.sj.emoji.EmojiBean;
 import com.sj.emoji.EmojiDisplay;
 import com.testemticon.DefXhsEmoticons;
 import com.zmm.tmsystem.R;
+import com.zmm.tmsystem.ui.widget.chat.Constants;
+import com.zmm.tmsystem.ui.widget.chat.SimpleAppsGridView;
+import com.zmm.tmsystem.ui.widget.chat.adapter.TextEmoticonsAdapter;
+import com.zmm.tmsystem.ui.widget.chat.adapter.BigEmoticonsAdapter;
+import com.zmm.tmsystem.ui.widget.chat.adapter.BigEmoticonsAndTitleAdapter;
 import com.zmm.tmsystem.ui.widget.chat.filter.EmojiFilter;
 import com.zmm.tmsystem.ui.widget.chat.filter.XhsFilter;
 import com.zmm.tmsystem.ui.widget.keyboard.adpater.EmoticonsAdapter;

@@ -14,11 +14,11 @@ import android.text.TextUtils;
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.application.AppApplication;
 import com.zmm.tmsystem.ui.widget.chat.AttachmentStore;
-import com.zmm.tmsystem.ui.widget.chat.FileUtil;
-import com.zmm.tmsystem.ui.widget.chat.SampleSizeUtil;
-import com.zmm.tmsystem.ui.widget.chat.StorageType;
-import com.zmm.tmsystem.ui.widget.chat.StorageUtil;
-import com.zmm.tmsystem.ui.widget.chat.StringUtil;
+import com.zmm.tmsystem.ui.widget.chat.utils.FileUtil;
+import com.zmm.tmsystem.ui.widget.chat.utils.SampleSizeUtil;
+import com.zmm.tmsystem.ui.widget.chat.utils.StorageType;
+import com.zmm.tmsystem.ui.widget.chat.utils.StorageUtil;
+import com.zmm.tmsystem.ui.widget.chat.utils.StringUtil;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

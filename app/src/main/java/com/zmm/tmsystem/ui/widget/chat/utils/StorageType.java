@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.utils;
 
 public enum StorageType {
     TYPE_LOG(DirectoryName.LOG_DIRECTORY_NAME),

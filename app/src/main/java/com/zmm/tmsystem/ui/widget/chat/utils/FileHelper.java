@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.utils;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.common.Constant;
+import com.zmm.tmsystem.ui.widget.chat.DialogCreator;
 
 import java.io.File;
 import java.io.FileInputStream;

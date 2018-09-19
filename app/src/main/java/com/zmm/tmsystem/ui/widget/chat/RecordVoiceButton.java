@@ -13,7 +13,6 @@ import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zmm.tmsystem.R;
+import com.zmm.tmsystem.ui.widget.chat.adapter.ChattingListAdapter;
+import com.zmm.tmsystem.ui.widget.chat.utils.FileHelper;
+import com.zmm.tmsystem.ui.widget.chat.utils.HandleResponseCode;
+import com.zmm.tmsystem.ui.widget.chat.utils.IdHelper;
 
 import java.io.File;
 import java.io.FileInputStream;

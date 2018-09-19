@@ -8,6 +8,7 @@ import android.widget.GridView;
 import android.widget.RelativeLayout;
 
 import com.zmm.tmsystem.R;
+import com.zmm.tmsystem.ui.widget.chat.adapter.AppsAdapter;
 
 import java.util.ArrayList;
 

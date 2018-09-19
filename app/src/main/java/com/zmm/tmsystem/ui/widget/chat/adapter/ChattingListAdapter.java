@@ -1,9 +1,8 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.adapter;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.text.TextUtils;
@@ -20,6 +19,10 @@ import android.widget.TextView;
 
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.common.utils.ToastUtils;
+import com.zmm.tmsystem.ui.widget.chat.DialogCreator;
+import com.zmm.tmsystem.ui.widget.chat.utils.HandleResponseCode;
+import com.zmm.tmsystem.ui.widget.chat.utils.TimeFormat;
+import com.zmm.tmsystem.ui.widget.chat.controller.ChatItemController;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +32,6 @@ import java.util.Queue;
 
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.callback.GetAvatarBitmapCallback;
-import cn.jpush.im.android.api.callback.GetReceiptDetailsCallback;
 import cn.jpush.im.android.api.callback.ProgressUpdateCallback;
 import cn.jpush.im.android.api.content.FileContent;
 import cn.jpush.im.android.api.content.TextContent;

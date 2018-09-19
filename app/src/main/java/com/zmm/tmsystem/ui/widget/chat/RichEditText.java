@@ -21,6 +21,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 
+import com.zmm.tmsystem.ui.widget.chat.adapter.TextWatcherAdapter;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

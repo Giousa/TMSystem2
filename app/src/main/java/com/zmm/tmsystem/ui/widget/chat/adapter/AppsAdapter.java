@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.common.Constant;
+import com.zmm.tmsystem.ui.widget.chat.AppBean;
 import com.zmm.tmsystem.ui.widget.chat.event.ImageEvent;
 
 import java.util.ArrayList;

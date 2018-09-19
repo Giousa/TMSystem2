@@ -9,7 +9,7 @@ import android.os.Build;
 import android.provider.MediaStore;
 
 import com.zmm.tmsystem.ui.widget.chat.AttachmentStore;
-import com.zmm.tmsystem.ui.widget.chat.SampleSizeUtil;
+import com.zmm.tmsystem.ui.widget.chat.utils.SampleSizeUtil;
 
 import java.io.File;
 import java.io.FileInputStream;

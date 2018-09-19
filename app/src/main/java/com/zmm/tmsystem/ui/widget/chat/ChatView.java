@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmm.tmsystem.R;
-import com.zmm.tmsystem.ui.activity.ChatActivity;
+import com.zmm.tmsystem.ui.widget.chat.adapter.ChattingListAdapter;
 import com.zmm.tmsystem.ui.widget.chat.ui.ChatActivity2;
 
 import cn.jpush.im.android.api.model.Conversation;

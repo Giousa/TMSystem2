@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zmm.tmsystem.R;
+import com.zmm.tmsystem.ui.widget.chat.Constants;
 import com.zmm.tmsystem.ui.widget.keyboard.adpater.EmoticonsAdapter;
 import com.zmm.tmsystem.ui.widget.keyboard.data.EmoticonEntity;
 import com.zmm.tmsystem.ui.widget.keyboard.data.EmoticonPageEntity;

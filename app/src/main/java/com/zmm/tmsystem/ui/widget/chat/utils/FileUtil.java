@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.utils;
 
 import android.text.TextUtils;
 import android.util.Log;

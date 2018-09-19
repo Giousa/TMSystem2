@@ -1,4 +1,4 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.controller;
 
 
 import android.app.Activity;
@@ -46,7 +46,12 @@ import java.util.Queue;
 
 import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.ToastUtils;
-import com.zmm.tmsystem.ui.widget.chat.ChattingListAdapter.ViewHolder;
+import com.zmm.tmsystem.ui.widget.chat.adapter.ChattingListAdapter;
+import com.zmm.tmsystem.ui.widget.chat.adapter.ChattingListAdapter.ViewHolder;
+import com.zmm.tmsystem.ui.widget.chat.utils.FileHelper;
+import com.zmm.tmsystem.ui.widget.chat.utils.FileUtils;
+import com.zmm.tmsystem.ui.widget.chat.utils.HandleResponseCode;
+import com.zmm.tmsystem.ui.widget.chat.utils.SimpleCommonUtils;
 import com.zmm.tmsystem.ui.widget.chat.pickerimage.BitmapDecoder;
 
 

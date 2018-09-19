@@ -1,6 +1,8 @@
-package com.zmm.tmsystem.ui.widget.chat;
+package com.zmm.tmsystem.ui.widget.chat.utils;
 
 import android.text.TextUtils;
+
+import com.zmm.tmsystem.ui.widget.chat.utils.MD5;
 
 import java.util.Locale;
 import java.util.UUID;

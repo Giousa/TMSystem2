@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.zmm.tmsystem.R;
+import com.zmm.tmsystem.ui.widget.chat.utils.IdHelper;
 
 
 public class DropDownListView extends ListView implements OnScrollListener {
