@@ -472,7 +472,6 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                     float OldListX = (float) location[0];
                     new TipView.Builder(ChatActivity2.this, mChatView, (int) OldListX + view.getWidth() / 2, (int) OldListY + view.getHeight())
                             .addItem(new TipItem("复制"))
-                            .addItem(new TipItem("转发"))
                             .addItem(new TipItem("删除"))
                             .setOnItemClickListener(new TipView.OnItemClickListener() {
                                 @Override
@@ -496,12 +495,6 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                                         } else {
                                             Toast.makeText(ChatActivity2.this, "只支持复制文字", Toast.LENGTH_SHORT).show();
                                         }
-                                    } else if (position == 1) {
-                                        ToastUtils.SimpleToast(mContext, "ForwardMsgActivity");
-//                                        Intent intent = new Intent(ChatActivity2.this, ForwardMsgActivity.class);
-//                                        JGApplication.forwardMsg.clear();
-//                                        JGApplication.forwardMsg.add(msg);
-//                                        startActivity(intent);
                                     } else {
                                         //删除
                                         mConv.deleteMessage(msg.getId());
@@ -523,7 +516,6 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                     float OldListX = (float) location[0];
                     new TipView.Builder(ChatActivity2.this, mChatView, (int) OldListX + view.getWidth() / 2, (int) OldListY + view.getHeight())
                             .addItem(new TipItem("复制"))
-                            .addItem(new TipItem("转发"))
                             .addItem(new TipItem("撤回"))
                             .addItem(new TipItem("删除"))
                             .setOnItemClickListener(new TipView.OnItemClickListener() {
@@ -549,19 +541,6 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                                             Toast.makeText(ChatActivity2.this, "只支持复制文字", Toast.LENGTH_SHORT).show();
                                         }
                                     } else if (position == 1) {
-                                        //转发
-                                        ToastUtils.SimpleToast(mContext, "转发");
-
-//                                        if (msg.getContentType() == ContentType.text || msg.getContentType() == ContentType.image ||
-//                                                (msg.getContentType() == ContentType.file && (msg.getContent()).getStringExtra("video") != null)) {
-//                                            Intent intent = new Intent(ChatActivity.this, ForwardMsgActivity.class);
-//                                            JGApplication.forwardMsg.clear();
-//                                            JGApplication.forwardMsg.add(msg);
-//                                            startActivity(intent);
-//                                        } else {
-//                                            Toast.makeText(ChatActivity.this, "只支持转发文本,图片,小视频", Toast.LENGTH_SHORT).show();
-//                                        }
-                                    } else if (position == 2) {
                                         //撤回
                                         mConv.retractMessage(msg, new BasicCallback() {
                                             @Override
@@ -596,23 +575,13 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                     float OldListY = (float) location[1];
                     float OldListX = (float) location[0];
                     new TipView.Builder(ChatActivity2.this, mChatView, (int) OldListX + view.getWidth() / 2, (int) OldListY + view.getHeight())
-                            .addItem(new TipItem("转发"))
                             .addItem(new TipItem("删除"))
                             .setOnItemClickListener(new TipView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(String str, final int position) {
-                                    if (position == 1) {
-                                        //删除
-                                        mConv.deleteMessage(msg.getId());
-                                        mChatAdapter.removeMessage(msg);
-                                    } else {
-                                        ToastUtils.SimpleToast(mContext, "转发 失败");
-
-//                                        Intent intent = new Intent(ChatActivity.this, ForwardMsgActivity.class);
-//                                        JGApplication.forwardMsg.clear();
-//                                        JGApplication.forwardMsg.add(msg);
-//                                        startActivity(intent);
-                                    }
+                                    //删除
+                                    mConv.deleteMessage(msg.getId());
+                                    mChatAdapter.removeMessage(msg);
                                 }
 
                                 @Override
@@ -628,13 +597,12 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                     float OldListY = (float) location[1];
                     float OldListX = (float) location[0];
                     new TipView.Builder(ChatActivity2.this, mChatView, (int) OldListX + view.getWidth() / 2, (int) OldListY + view.getHeight())
-                            .addItem(new TipItem("转发"))
                             .addItem(new TipItem("撤回"))
                             .addItem(new TipItem("删除"))
                             .setOnItemClickListener(new TipView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(String str, final int position) {
-                                    if (position == 1) {
+                                    if (position == 0) {
                                         //撤回
                                         mConv.retractMessage(msg, new BasicCallback() {
                                             @Override
@@ -646,14 +614,7 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                                                 }
                                             }
                                         });
-                                    } else if (position == 0) {
-                                        ToastUtils.SimpleToast(mContext, "转发 撤回 失败");
-
-//                                        Intent intent = new Intent(ChatActivity.this, ForwardMsgActivity.class);
-//                                        JGApplication.forwardMsg.clear();
-//                                        JGApplication.forwardMsg.add(msg);
-//                                        startActivity(intent);
-                                    } else {
+                                    }else {
                                         //删除
                                         mConv.deleteMessage(msg.getId());
                                         mChatAdapter.removeMessage(msg);
@@ -700,21 +661,6 @@ public class ChatActivity2 extends BaseActivity implements FuncLayout.OnFuncKeyB
                 intent2.putExtra(ImageGridActivity.EXTRAS_TAKE_PICKERS,true); // 是否是直接打开相机
                 startActivityForResult(intent2, 100);
 
-                break;
-            case Constant.TAKE_LOCATION:
-                ToastUtils.SimpleToast(mContext, "位置");
-
-                break;
-            case Constant.FILE_MESSAGE:
-                ToastUtils.SimpleToast(mContext, "文件");
-                break;
-            case Constant.BUSINESS_CARD:
-                ToastUtils.SimpleToast(mContext, "好友列表");
-
-                break;
-            case Constant.TACK_VIDEO:
-            case Constant.TACK_VOICE:
-                ToastUtils.SimpleToast(mContext, "该功能正在添加中");
                 break;
             default:
                 break;
