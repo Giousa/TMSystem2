@@ -1,6 +1,7 @@
 package com.zmm.tmsystem.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import com.zmm.tmsystem.ui.widget.GlideCircleTransform;
 
 import java.text.ParseException;
 
+import cn.jpush.im.android.api.callback.GetAvatarBitmapCallback;
 import cn.jpush.im.android.api.content.CustomContent;
 import cn.jpush.im.android.api.content.PromptContent;
 import cn.jpush.im.android.api.content.TextContent;
@@ -43,7 +45,7 @@ public class ChatAdapter extends BaseQuickAdapter<Conversation,BaseViewHolder>{
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, final Conversation conversation) {
+    protected void convert(final BaseViewHolder helper, final Conversation conversation) {
 
         Message latestMessage = conversation.getLatestMessage();
 
@@ -124,19 +126,30 @@ public class ChatAdapter extends BaseQuickAdapter<Conversation,BaseViewHolder>{
         }
 
 
-        ImageView imageView = helper.getView(R.id.iv_chat_icon);
+        final ImageView imageView = helper.getView(R.id.iv_chat_icon);
 
         //聊天头像
 //        imageView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.jmui_head_icon));
 
-        Glide.with(mContext)
-                .load(R.drawable.jmui_head_icon)
-                .transform(new GlideCircleTransform(mContext))
-                .error(new IconicsDrawable(mContext)
-                        .icon(Ionicons.Icon.ion_android_contact)
-                        .color(mContext.getResources().getColor(R.color.colorPrimary)
-                        ))
-                .into(imageView);
+        UserInfo userInfo = (UserInfo) conversation.getTargetInfo();
+        if (userInfo != null && !TextUtils.isEmpty(userInfo.getAvatar())) {
+            userInfo.getAvatarBitmap(new GetAvatarBitmapCallback() {
+                @Override
+                public void gotResult(int status, String desc, Bitmap bitmap) {
+                    if (status == 0) {
+
+                        helper.setImageBitmap(R.id.iv_chat_icon,bitmap);
+
+                    } else {
+                        helper.setImageResource(R.id.iv_chat_icon,R.drawable.jmui_head_icon);
+                    }
+                }
+            });
+        } else {
+            helper.setImageResource(R.id.iv_chat_icon,R.drawable.jmui_head_icon);
+
+        }
+
     }
 
 
