@@ -1,6 +1,7 @@
 package com.zmm.tmsystem.ui.activity;
 
 import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
 import android.widget.LinearLayout;
 
 import com.zmm.tmsystem.R;
@@ -45,13 +46,13 @@ public class SplashActivity extends BaseActivity {
                 ACache aCache = ACache.get(SplashActivity.this);
                 String asString = aCache.getAsString(Constant.TEACHER_ID);
 
-                startActivity(LoginActivity.class);
+//                startActivity(LoginActivity.class);
 
-//                if(!TextUtils.isEmpty(asString)){
-//                    startActivity(MainActivity.class);
-//                }else {
-//                    startActivity(LoginActivity.class);
-//                }
+                if(!TextUtils.isEmpty(asString)){
+                    startActivity(MainActivity.class);
+                }else {
+                    startActivity(LoginActivity.class);
+                }
 
 
             }

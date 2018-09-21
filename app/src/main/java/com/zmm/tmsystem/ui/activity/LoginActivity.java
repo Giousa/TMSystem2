@@ -13,6 +13,7 @@ import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.zmm.tmsystem.R;
 import com.zmm.tmsystem.common.Constant;
 import com.zmm.tmsystem.common.utils.PicUtils;
+import com.zmm.tmsystem.common.utils.TeacherCacheUtil;
 import com.zmm.tmsystem.common.utils.ToastUtils;
 import com.zmm.tmsystem.dagger.component.AppComponent;
 import com.zmm.tmsystem.dagger.component.DaggerLoginComponent;
@@ -86,6 +87,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         RxView.clicks(mLoadingButton).subscribe(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
+                //登录之前，清空缓存数据
+                TeacherCacheUtil.clear(LoginActivity.this);
                 mPresenter.login(mEtLoginPhone.getText().toString().trim(), mEtLoginPassword.getText().toString().trim());
             }
         });

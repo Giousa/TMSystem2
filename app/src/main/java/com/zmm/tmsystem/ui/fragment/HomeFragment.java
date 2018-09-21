@@ -211,7 +211,13 @@ public class HomeFragment extends ProgressFragment<HomePresenter> implements Hom
             llShow.setVisibility(View.VISIBLE);
         }
 
-        tvChildcareName.setText("托管周期：" + statisticsBean.getTitle());
+        String title = statisticsBean.getTitle();
+        if(TextUtils.isEmpty(title)){
+            tvChildcareName.setText("托管周期：未选择" );
+        }else {
+            tvChildcareName.setText("托管周期：" + title);
+
+        }
         tvNumTotal.setText("总人数:  " + statisticsBean.getTotal() + "人");
         tvNumMale.setText("男生:  " + statisticsBean.getMale() + "人");
         tvNumFemale.setText("女生:  " + statisticsBean.getFemale() + "人");
