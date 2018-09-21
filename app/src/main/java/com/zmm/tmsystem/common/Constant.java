@@ -20,7 +20,7 @@ public class Constant {
     public static final int BUSINESS_CARD = 7;
 
 //    public static final String BASE_URL = "http://192.168.253.7:8082/tms/";
-    public static final String BASE_URL = "http://giousa.com/teacher/tms/";
+    public static final String BASE_URL = "http://giousa.com/tuoguan/tms/";
 
     //分享学生端下载链接
     public static final String STUDENT_DOWNLOAD_URL = BASE_URL + "download";
