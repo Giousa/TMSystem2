@@ -138,6 +138,9 @@ public class HomeFragment extends ProgressFragment<HomePresenter> implements Hom
 
     public void showTeacherInfo(TeacherBean teacherBean) {
 
+        if(mTvHeadName == null){
+            return;
+        }
         String name = teacherBean.getName();
         String icon = teacherBean.getIcon();
         String childcareName = teacherBean.getChildcareName();
@@ -209,6 +212,8 @@ public class HomeFragment extends ProgressFragment<HomePresenter> implements Hom
         //显示数据
         if(llShow != null){
             llShow.setVisibility(View.VISIBLE);
+        }else {
+            return;
         }
 
         String title = statisticsBean.getTitle();

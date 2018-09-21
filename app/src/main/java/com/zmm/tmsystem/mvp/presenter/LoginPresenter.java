@@ -69,28 +69,34 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginModel,Logi
                     @Override
                     public void onNext(final TeacherBean teacherBean) {
 
+                        mView.dismissLoading();
+
+                        TeacherCacheUtil.save(mContext,teacherBean);
+
+                        mView.loginSuccess();
+
                         //登录极光
-                        JMessageClient.login(phone, "14163749", new BasicCallback() {
-                            @Override
-                            public void gotResult(int responseCode, String responseMessage) {
-
-                                mView.dismissLoading();
-
-                                if (responseCode == 0) {
-
-                                    UserInfo myInfo = JMessageClient.getMyInfo();
-
-                                    teacherBean.setAppkey(myInfo.getAppKey());
-                                    TeacherCacheUtil.save(mContext,teacherBean);
-
-                                    mView.loginSuccess();
-                                } else {
-                                    System.out.println("登陆失败" + responseMessage);
-                                    ToastUtils.SimpleToast(mContext, "登陆失败" + responseMessage);
-
-                                }
-                            }
-                        });
+//                        JMessageClient.login(phone, "14163749", new BasicCallback() {
+//                            @Override
+//                            public void gotResult(int responseCode, String responseMessage) {
+//
+//                                mView.dismissLoading();
+//
+//                                if (responseCode == 0) {
+//
+//                                    UserInfo myInfo = JMessageClient.getMyInfo();
+//
+//                                    teacherBean.setAppkey(myInfo.getAppKey());
+//                                    TeacherCacheUtil.save(mContext,teacherBean);
+//
+//                                    mView.loginSuccess();
+//                                } else {
+//                                    System.out.println("登陆失败" + responseMessage);
+//                                    ToastUtils.SimpleToast(mContext, "登陆失败" + responseMessage);
+//
+//                                }
+//                            }
+//                        });
 
 
 

@@ -191,7 +191,7 @@ public interface ApiService {
      * @param id
      * @return
      */
-    @GET("queryTermById//{id}")
+    @GET("queryTermById/{id}")
     Observable<BaseBean<TermBean>> queryTermById(@Path("id") String id);
 
     /**
@@ -207,7 +207,7 @@ public interface ApiService {
      * @param id
      * @return
      */
-    @GET("deleteTerm//{id}")
+    @GET("deleteTerm/{id}")
     Observable<BaseBean<String>> deleteTerm(@Path("id") String id);
 
 
