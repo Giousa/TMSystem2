@@ -70,14 +70,12 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginModel,Logi
                     public void onNext(final TeacherBean teacherBean) {
 
                         //登录极光
-                        JMessageClient.login(phone, password, new BasicCallback() {
+                        JMessageClient.login(phone, "14163749", new BasicCallback() {
                             @Override
                             public void gotResult(int responseCode, String responseMessage) {
 
                                 mView.dismissLoading();
 
-                                System.out.println("responseCode = "+responseCode);
-                                System.out.println("responseMessage = "+responseMessage);
                                 if (responseCode == 0) {
 
                                     UserInfo myInfo = JMessageClient.getMyInfo();

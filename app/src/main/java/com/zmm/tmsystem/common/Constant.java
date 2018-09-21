@@ -19,7 +19,8 @@ public class Constant {
     public static final int TACK_VOICE = 6;
     public static final int BUSINESS_CARD = 7;
 
-    public static final String BASE_URL = "http://192.168.253.7:8082/tms/";
+//    public static final String BASE_URL = "http://192.168.253.7:8082/tms/";
+    public static final String BASE_URL = "http://giousa.com/teacher/tms/";
 
     //分享学生端下载链接
     public static final String STUDENT_DOWNLOAD_URL = BASE_URL + "download";
